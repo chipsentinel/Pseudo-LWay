@@ -40,7 +40,8 @@ body {
 
 /* Content */
 .app-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr;
   flex: 1;
   gap: 1rem;
   padding: 1rem;
@@ -59,12 +60,41 @@ body {
 }
 
 .editor-panel {
-  flex: 2;
+  /* now controlled by grid */
 }
 
 .output-panel {
-  flex: 1;
+  /* now controlled by grid */
   min-width: 400px;
+}
+/* Levels Sidebar */
+.levels-sidebar {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+}
+
+.levels-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem 0;
+}
+
+.levels-list li { margin-bottom: 0.5rem; }
+
+.btn.btn-outline {
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border: 1px solid #ccd1e4;
+  color: #333;
+}
+
+.level-detail {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
 }
 
 .panel-header {

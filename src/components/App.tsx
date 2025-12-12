@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 import * as Blockly from 'blockly';
 import { BlocklyEditor } from '../features/editor';
+import { LevelsSidebar } from './LevelsSidebar';
+import { LEVELS, Level } from '../features/levels/levels';
 import { BlocklyToASTConverter } from '../features/editor/blocklyConverter';
 import { Validator, PseudocodeGenerator, ValidationError } from '../core';
 import './App.css';
@@ -9,6 +11,7 @@ function App() {
   const [pseudocode, setPseudocode] = useState<string>('');
   const [errors, setErrors] = useState<string[]>([]);
   const [workspace, setWorkspace] = useState<Blockly.Workspace | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<Level | null>(LEVELS[0]);
 
   const handleWorkspaceChange = useCallback((ws: Blockly.Workspace) => {
     setWorkspace(ws);
@@ -56,6 +59,11 @@ function App() {
     setErrors([]);
   };
 
+  const handleSelectLevel = (level: Level) => {
+    setSelectedLevel(level);
+    // En el futuro: cargar starterXml en el workspace
+  };
+
   return (
     <div className="app">
       <header className="app-header">
@@ -64,6 +72,20 @@ function App() {
       </header>
 
       <div className="app-content">
+        <div className="levels-panel">
+          <LevelsSidebar onSelectLevel={handleSelectLevel} />
+          {selectedLevel && (
+            <div className="level-detail">
+              <h3>{selectedLevel.title}</h3>
+              <p>{selectedLevel.description}</p>
+              <ul>
+                {selectedLevel.tips.map((tip, idx) => (
+                  <li key={idx}>{tip}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
         <div className="editor-panel">
           <div className="panel-header">
             <h2>Editor de Bloques</h2>
