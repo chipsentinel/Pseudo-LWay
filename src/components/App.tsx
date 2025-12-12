@@ -142,7 +142,11 @@ function App() {
       </div>
 
       <footer className="app-footer">
-        <p>Proyecto educativo para estudiantes de DAW 1 - Pseudo-LWay v0.1.0</p>
+        <p className="mascot">
+          <img src="/src/assets/poiyo.svg" alt="Poyo" />
+          Proyecto educativo DAW 1 — Pseudo-LWay v0.1.0
+        </p>
+        <p>Aprende jugando bajo el sol naciente ☀️🐔</p>
       </footer>
     </div>
   );
