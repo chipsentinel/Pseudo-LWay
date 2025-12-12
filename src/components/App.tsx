@@ -67,8 +67,13 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🎓 Pseudo-LWay</h1>
-        <p>Editor visual de pseudocódigo estilo PSeInt</p>
+        <div className="brand">
+          <img src="/src/assets/sunrise.svg" alt="Sol naciente" className="brand-logo" />
+          <div className="brand-text">
+            <h1>Pseudo-LWay</h1>
+            <p>Editor visual de pseudocódigo estilo PSeInt</p>
+          </div>
+        </div>
       </header>
 
       <div className="app-content">
