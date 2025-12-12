@@ -23,6 +23,15 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
       contents: [
         {
           kind: 'category',
+          name: 'Programa',
+          colour: '300',
+          contents: [
+            { kind: 'block', type: 'pseudo_start' },
+            { kind: 'block', type: 'pseudo_end' },
+          ],
+        },
+        {
+          kind: 'category',
           name: 'Variables',
           colour: '160',
           contents: [

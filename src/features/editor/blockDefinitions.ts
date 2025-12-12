@@ -5,6 +5,32 @@ import { DataType } from '../../core';
  * Definiciones de bloques personalizados para Pseudo-LWay
  */
 
+// Bloque: Inicio de Algoritmo
+Blockly.Blocks['pseudo_start'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Algoritmo')
+      .appendField(new Blockly.FieldTextInput('MiAlgoritmo'), 'ALGO_NAME');
+    this.setPreviousStatement(false, null);
+    this.setNextStatement(true, null);
+    this.setColour(300);
+    this.setTooltip('Inicio del algoritmo con su nombre');
+    this.setHelpUrl('');
+  },
+};
+
+// Bloque: Fin de Algoritmo
+Blockly.Blocks['pseudo_end'] = {
+  init: function () {
+    this.appendDummyInput().appendField('FinAlgoritmo');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(false, null);
+    this.setColour(300);
+    this.setTooltip('Fin del algoritmo');
+    this.setHelpUrl('');
+  },
+};
+
 // Bloque: Definir variable
 Blockly.Blocks['pseudo_define'] = {
   init: function () {

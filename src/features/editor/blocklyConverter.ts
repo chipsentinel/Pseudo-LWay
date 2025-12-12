@@ -18,8 +18,22 @@ export class BlocklyToASTConverter {
   convertWorkspace(workspace: Blockly.Workspace, programName: string = 'MiAlgoritmo'): Program {
     const topBlocks = workspace.getTopBlocks(true);
     const statements: Statement[] = [];
+    let hasStart = false;
+    let hasEnd = false;
+    let nameFromStart: string | undefined;
 
     for (const block of topBlocks) {
+      // Capturar bloques de inicio/fin
+      if (block.type === 'pseudo_start') {
+        hasStart = true;
+        nameFromStart = block.getFieldValue('ALGO_NAME') as string;
+        continue; // no es una sentencia ejecutable
+      }
+      if (block.type === 'pseudo_end') {
+        hasEnd = true;
+        continue; // no es una sentencia ejecutable
+      }
+
       const statement = this.convertBlock(block);
       if (statement) {
         statements.push(statement);
@@ -28,8 +42,10 @@ export class BlocklyToASTConverter {
 
     return {
       kind: 'program',
-      name: programName,
+      name: nameFromStart ?? programName,
       statements,
+      hasStartBlock: hasStart,
+      hasEndBlock: hasEnd,
     };
   }
 

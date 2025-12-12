@@ -273,6 +273,14 @@ export interface Program {
   kind: 'program';      // Identificador del tipo
   name: string;         // Nombre del algoritmo
   statements: Statement[]; // Lista de todas las sentencias del programa
+  /**
+   * Metadatos opcionales provenientes del editor visual.
+   * Si el usuario añade bloques de inicio/fin de algoritmo,
+   * estos flags se marcan para que el validador pueda avisar
+   * si falta alguno de ellos.
+   */
+  hasStartBlock?: boolean;
+  hasEndBlock?: boolean;
 }
 
 /**
