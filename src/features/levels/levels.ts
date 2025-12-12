@@ -4,9 +4,14 @@ export interface Level {
   description: string;
   tips: string[];
   starterXml?: string;
+  exercise?: {
+    goal: string;
+    expected?: string;
+  };
 }
 
 export const LEVELS: Level[] = [
+  // UD01 — secciones del temario (placeholder)
   {
     id: 'lvl-1-suma',
     title: 'Sumar dos números',

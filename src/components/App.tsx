@@ -11,7 +11,11 @@ function App() {
   const [pseudocode, setPseudocode] = useState<string>('');
   const [errors, setErrors] = useState<string[]>([]);
   const [workspace, setWorkspace] = useState<Blockly.Workspace | null>(null);
-  const [selectedLevel, setSelectedLevel] = useState<Level | null>(LEVELS[0]);
+  const allLevels = useMemo(() => [...UD01_LEVELS, ...LEVELS], []);
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
+  const [completedLevels, setCompletedLevels] = useState<Record<string, boolean>>({});
+  
+  const selectedLevel = allLevels[currentLevelIndex];
 
   const handleWorkspaceChange = useCallback((ws: Blockly.Workspace) => {
     setWorkspace(ws);
@@ -60,15 +64,38 @@ function App() {
   };
 
   const handleSelectLevel = (level: Level) => {
-    setSelectedLevel(level);
+    const index = allLevels.findIndex(l => l.id === level.id);
+    if (index !== -1) setCurrentLevelIndex(index);
     // En el futuro: cargar starterXml en el workspace
   };
+
+  const handleMarkCompleted = () => {
+    if (selectedLevel) {
+      setCompletedLevels(prev => ({ ...prev, [selectedLevel.id]: true }));
+    }
+  };
+
+  const handlePreviousLevel = () => {
+    if (currentLevelIndex > 0) {
+      setCurrentLevelIndex(currentLevelIndex - 1);
+    }
+  };
+
+  const handleNextLevel = () => {
+    // Solo permitir avanzar si el nivel actual está completado
+    if (completedLevels[selectedLevel.id] && currentLevelIndex < allLevels.length - 1) {
+      setCurrentLevelIndex(currentLevelIndex + 1);
+    }
+  };
+
+  const canGoNext = completedLevels[selectedLevel.id] && currentLevelIndex < allLevels.length - 1;
+  const canGoPrevious = currentLevelIndex > 0;
 
   return (
     <div className="app">
       <header className="app-header">
         <div className="brand">
-          <img src="/src/assets/sunrise.svg" alt="Sol naciente" className="brand-logo" />
+          <img src="/src/assets/sunrise_lightning.svg" alt="Sol naciente con rayo" className="brand-logo" />
           <div className="brand-text">
             <h1>Pseudo-LWay</h1>
             <p>Editor visual de pseudocódigo estilo PSeInt</p>
@@ -78,16 +105,69 @@ function App() {
 
       <div className="app-content">
         <div className="levels-panel">
-          <LevelsSidebar onSelectLevel={handleSelectLevel} />
+          <LevelsSidebar onSelectLevel={handleSelectLevel} completedLevels={completedLevels} />
           {selectedLevel && (
             <div className="level-detail">
-              <h3>{selectedLevel.title}</h3>
-              <p>{selectedLevel.description}</p>
-              <ul>
-                {selectedLevel.tips.map((tip, idx) => (
-                  <li key={idx}>{tip}</li>
-                ))}
-              </ul>
+              <div className="level-header">
+                <h2>Nivel {currentLevelIndex + 1} — {selectedLevel.title}</h2>
+                {completedLevels[selectedLevel.id] && <span className="badge-completed">✅ Completado</span>}
+              </div>
+              
+              <div className="level-section">
+                <h3>📚 Qué vas a aprender</h3>
+                <p>{selectedLevel.description}</p>
+              </div>
+
+              <div className="level-section">
+                <h3>💡 Consejos</h3>
+                <ul>
+                  {selectedLevel.tips.map((tip, idx) => (
+                    <li key={idx}>{tip}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {selectedLevel.exercise && (
+                <div className="level-section exercise-box">
+                  <h3>🎯 Ejercicio del Nivel</h3>
+                  <p className="exercise-goal">{selectedLevel.exercise.goal}</p>
+                  {selectedLevel.exercise.expected && (
+                    <details className="expected-output">
+                      <summary>Ver salida esperada</summary>
+                      <pre>{selectedLevel.exercise.expected}</pre>
+                    </details>
+                  )}
+                </div>
+              )}
+
+              <div className="level-navigation">
+                <button 
+                  className="btn btn-outline" 
+                  onClick={handlePreviousLevel}
+                  disabled={!canGoPrevious}
+                >
+                  ← Anterior
+                </button>
+                <button 
+                  className="btn btn-primary" 
+                  onClick={handleMarkCompleted}
+                  disabled={completedLevels[selectedLevel.id]}
+                >
+                  {completedLevels[selectedLevel.id] ? '✓ Completado' : 'Marcar Completado'}
+                </button>
+                <button 
+                  className="btn btn-outline" 
+                  onClick={handleNextLevel}
+                  disabled={!canGoNext}
+                  title={!completedLevels[selectedLevel.id] ? 'Completa este nivel primero' : ''}
+                >
+                  Siguiente →
+                </button>
+              </div>
+
+              <div className="progress-indicator">
+                Progreso: {Object.keys(completedLevels).length} / {allLevels.length} niveles
+              </div>
             </div>
           )}
         </div>

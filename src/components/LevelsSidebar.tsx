@@ -1,12 +1,18 @@
 import { useMemo } from 'react';
 import { LEVELS, Level } from '../features/levels/levels';
+import { UD01_LEVELS } from '../features/levels/ud01';
 
 interface LevelsSidebarProps {
   onSelectLevel?: (level: Level) => void;
 }
 
-export function LevelsSidebar({ onSelectLevel }: LevelsSidebarProps) {
-  const levels = useMemo(() => LEVELS, []);
+interface LevelsSidebarProps {
+  onSelectLevel?: (level: Level) => void;
+  completedLevels?: Record<string, boolean>;
+}
+
+export function LevelsSidebar({ onSelectLevel, completedLevels = {} }: LevelsSidebarProps) {
+  const levels = useMemo(() => [...UD01_LEVELS, ...LEVELS], []);
 
   return (
     <div className="levels-sidebar">
@@ -14,13 +20,15 @@ export function LevelsSidebar({ onSelectLevel }: LevelsSidebarProps) {
         <h2>Temario y Niveles</h2>
       </div>
       <ul className="levels-list">
-        {levels.map((lvl) => (
+        {levels.map((lvl, idx) => (
           <li key={lvl.id}>
             <button
-              className="btn btn-outline"
+              className={`btn btn-outline level-item ${completedLevels[lvl.id] ? 'completed' : ''}`}
               onClick={() => onSelectLevel && onSelectLevel(lvl)}
             >
-              {lvl.title}
+              <span className="level-number">Nivel {idx + 1}</span>
+              <span className="level-title">{lvl.title}</span>
+              {completedLevels[lvl.id] && <span className="level-check">✓</span>}
             </button>
           </li>
         ))}
