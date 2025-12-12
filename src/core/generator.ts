@@ -58,7 +58,7 @@ export class PseudocodeGenerator {
   private generateStatement(statement: Statement): string[] {
     switch (statement.kind) {
       case 'define':
-        return [this.indent(`Definir ${statement.name} Como ${statement.dataType}`)];
+        return [this.indent(`Definir ${statement.name} Como ${this.mapTypeToJava(statement.dataType)}`)];
 
       case 'assign':
         return [
@@ -196,6 +196,23 @@ export class PseudocodeGenerator {
       return value ? 'Verdadero' : 'Falso';
     }
     return String(value);
+  }
+
+  private mapTypeToJava(type: import('./types').DataType): string {
+    switch (type) {
+      case 'Entero':
+        return 'int';
+      case 'Real':
+        return 'double';
+      case 'Logico':
+        return 'boolean';
+      case 'Cadena':
+        return 'String';
+      case 'Caracter':
+        return 'char';
+      default:
+        return String(type);
+    }
   }
 
   private indent(text: string): string {

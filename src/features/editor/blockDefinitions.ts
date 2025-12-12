@@ -40,11 +40,11 @@ Blockly.Blocks['pseudo_define'] = {
       .appendField('Como')
       .appendField(
         new Blockly.FieldDropdown([
-          ['Entero', DataType.ENTERO],
-          ['Real', DataType.REAL],
-          ['Lógico', DataType.LOGICO],
-          ['Cadena', DataType.CADENA],
-          ['Carácter', DataType.CARACTER],
+          ['int', DataType.ENTERO],
+          ['double', DataType.REAL],
+          ['boolean', DataType.LOGICO],
+          ['String', DataType.CADENA],
+          ['char', DataType.CARACTER],
         ]),
         'VAR_TYPE'
       );
