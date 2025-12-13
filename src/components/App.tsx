@@ -17,6 +17,7 @@ function App() {
   const allLevels = useMemo(() => [...UD01_LEVELS, ...UD02_LEVELS, SANDBOX_LEVEL, ...LEVELS], []);
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [completedLevels, setCompletedLevels] = useState<Record<string, boolean>>({});
+  const [successMessage, setSuccessMessage] = useState<string>('');
   
   const selectedLevel = allLevels[currentLevelIndex];
 
@@ -51,6 +52,20 @@ function App() {
 
       setPseudocode(code);
       setErrors([]);
+
+      // Validar ejercicio si hay salida esperada
+      if (selectedLevel && selectedLevel.exercise?.expected) {
+        const normalizedCode = code.replace(/\s+/g, ' ').trim().toLowerCase();
+        const normalizedExpected = selectedLevel.exercise.expected.replace(/\s+/g, ' ').trim().toLowerCase();
+        
+        if (normalizedCode.includes(normalizedExpected) || normalizedExpected.includes(normalizedCode)) {
+          setSuccessMessage(`¡Excelente! 🐔✨ Has completado el ejercicio correctamente. Marca como completado para continuar.`);
+        } else {
+          setSuccessMessage('');
+        }
+      } else {
+        setSuccessMessage('');
+      }
     } catch (error) {
       console.error('Error al generar pseudocódigo:', error);
       setErrors(['Error al generar el pseudocódigo. Revisa los bloques.']);
@@ -64,11 +79,17 @@ function App() {
     }
     setPseudocode('');
     setErrors([]);
+    setSuccessMessage('');
   };
 
   const handleSelectLevel = (level: Level) => {
     const index = allLevels.findIndex(l => l.id === level.id);
     if (index !== -1) setCurrentLevelIndex(index);
+    
+    // Limpiar mensajes de validación
+    setSuccessMessage('');
+    setErrors([]);
+    setPseudocode('');
     
     // Cargar starter XML si el nivel lo tiene
     if (workspace && level.starterXml) {
@@ -205,6 +226,12 @@ function App() {
           <div className="panel-header">
             <h2>Pseudocódigo Generado</h2>
           </div>
+
+          {successMessage && (
+            <div className="success-box">
+              <h3>{successMessage}</h3>
+            </div>
+          )}
 
           {errors.length > 0 && (
             <div className="error-box">
