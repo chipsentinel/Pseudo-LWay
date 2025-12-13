@@ -3,7 +3,7 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="240" /><br>
-  <span style="font-size:2.2em; font-weight:bold;">**Editor visual de pseudocódigo educativo con temática neon y progresión gamificada.**</span>
+  <span style="font-size:2.2em; font-weight:bold;">Editor visual de pseudocódigo educativo con temática neon y progresión gamificada.</span>
 </p>
 
 <p align="center">
