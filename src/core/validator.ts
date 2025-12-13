@@ -47,12 +47,12 @@ export class Validator {
     this.errors = [];
     this.variables = new Map();
 
-    // Comprobar inicio/fin de algoritmo si se usan bloques específicos
-    if (program.hasStartBlock && !program.hasEndBlock) {
-      this.addError('Falta el bloque de FinAlgoritmo. Añade "FinAlgoritmo" al final.');
-    }
-    if (program.hasEndBlock && !program.hasStartBlock) {
+    // Requerir siempre inicio y fin de algoritmo cuando se trabaja con bloques
+    if (!program.hasStartBlock) {
       this.addError('Falta el bloque de Algoritmo <nombre>. Añade el inicio de algoritmo.');
+    }
+    if (!program.hasEndBlock) {
+      this.addError('Falta el bloque de FinAlgoritmo. Añade "FinAlgoritmo" al final.');
     }
 
     // Validamos cada sentencia del programa
