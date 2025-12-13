@@ -1,12 +1,11 @@
 
 
-<p align="center">
+
+<div align="center">
 	<img src="/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
-</p>
 
-# Pseudo-LWay
+	<h1 style="text-align:center;">Pseudo-LWay</h1>
 
-<p align="center">
 	<a href="https://img.shields.io/badge/version-1.0-blue?style=flat-square"><img src="https://img.shields.io/badge/version-1.0-blue?style=flat-square" alt="version"/></a>
 	<a href="https://img.shields.io/badge/status-beta-yellow?style=flat-square"><img src="https://img.shields.io/badge/status-beta-yellow?style=flat-square" alt="status"/></a>
 	<a href="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square" alt="React"/></a>
@@ -15,7 +14,7 @@
 	<a href="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square"><img src="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square" alt="Blockly"/></a>
 	<a href="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square"><img src="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square" alt="Integral"/></a>
 	<a href="https://img.shields.io/badge/license-MIT-green?style=flat-square"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"/></a>
-</p>
+</div>
 
 **Editor visual de pseudocódigo educativo con temática neon y progresión gamificada**
 
