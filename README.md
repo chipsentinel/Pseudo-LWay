@@ -1,11 +1,12 @@
 
 
 
-<p align="center">
-  <img src="./public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
-</p>
 
-<h1 align="center">Pseudo-LWay</h1>
+<p align="center">
+  <img src="/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
+  <br/>
+  <strong><span style="font-size:2.2em">Pseudo-LWay</span></strong>
+</p>
 
 <p align="center">
   <a href="https://img.shields.io/badge/version-1.0-blue?style=flat-square"><img src="https://img.shields.io/badge/version-1.0-blue?style=flat-square" alt="version"/></a>
