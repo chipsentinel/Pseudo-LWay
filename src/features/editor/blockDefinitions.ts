@@ -13,7 +13,7 @@ Blockly.Blocks['pseudo_start'] = {
       .appendField(new Blockly.FieldTextInput('MiAlgoritmo'), 'ALGO_NAME');
     this.setPreviousStatement(false, null);
     this.setNextStatement(true, null);
-    this.setColour(300);
+    this.setColour(200);
     this.setTooltip('Inicio del algoritmo con su nombre');
     this.setHelpUrl('');
   },
@@ -25,7 +25,7 @@ Blockly.Blocks['pseudo_end'] = {
     this.appendDummyInput().appendField('FinAlgoritmo');
     this.setPreviousStatement(true, null);
     this.setNextStatement(false, null);
-    this.setColour(300);
+    this.setColour(200);
     this.setTooltip('Fin del algoritmo');
     this.setHelpUrl('');
   },
@@ -50,7 +50,7 @@ Blockly.Blocks['pseudo_define'] = {
       );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(160);
+    this.setColour(190);
     this.setTooltip('Define una variable con su tipo');
     this.setHelpUrl('');
   },
@@ -65,7 +65,7 @@ Blockly.Blocks['pseudo_assign'] = {
       .appendField('<-');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(250);
     this.setTooltip('Asigna un valor a una variable');
     this.setHelpUrl('');
   },
@@ -79,7 +79,7 @@ Blockly.Blocks['pseudo_read'] = {
       .appendField(new Blockly.FieldTextInput('variable'), 'VAR_NAME');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(170);
     this.setTooltip('Lee un valor desde la entrada');
     this.setHelpUrl('');
   },
@@ -91,7 +91,7 @@ Blockly.Blocks['pseudo_write'] = {
     this.appendValueInput('VALUE').setCheck(null).appendField('Escribir');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(170);
     this.setTooltip('Escribe un valor en la salida');
     this.setHelpUrl('');
   },
@@ -122,7 +122,7 @@ Blockly.Blocks['pseudo_while'] = {
     this.appendStatementInput('DO').setCheck(null).appendField('Hacer');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(170);
     this.setTooltip('Bucle mientras');
     this.setHelpUrl('');
   },
@@ -145,7 +145,7 @@ Blockly.Blocks['pseudo_for'] = {
     this.appendStatementInput('DO').setCheck(null).appendField('Hacer');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(170);
     this.setTooltip('Bucle Para');
     this.setHelpUrl('');
   },
@@ -157,7 +157,7 @@ Blockly.Blocks['pseudo_number'] = {
     this.appendDummyInput()
       .appendField(new Blockly.FieldNumber(0), 'VALUE');
     this.setOutput(true, 'Number');
-    this.setColour(230);
+    this.setColour(250);
     this.setTooltip('Número literal');
     this.setHelpUrl('');
   },
@@ -171,7 +171,7 @@ Blockly.Blocks['pseudo_text'] = {
       .appendField(new Blockly.FieldTextInput(''), 'VALUE')
       .appendField('"');
     this.setOutput(true, 'String');
-    this.setColour(160);
+    this.setColour(190);
     this.setTooltip('Texto literal');
     this.setHelpUrl('');
   },
@@ -201,7 +201,7 @@ Blockly.Blocks['pseudo_variable'] = {
     this.appendDummyInput()
       .appendField(new Blockly.FieldTextInput('variable'), 'VAR_NAME');
     this.setOutput(true, null);
-    this.setColour(330);
+    this.setColour(280);
     this.setTooltip('Referencia a una variable');
     this.setHelpUrl('');
   },

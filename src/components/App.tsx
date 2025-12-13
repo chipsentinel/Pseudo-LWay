@@ -1,8 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import * as Blockly from 'blockly';
 import { BlocklyEditor } from '../features/editor';
-import { LevelsSidebar } from './LevelsSidebar';
-import { Level } from '../features/levels/levels';
 import { UD01_LEVELS } from '../features/levels/ud01';
 import { BlocklyToASTConverter } from '../features/editor/blocklyConverter';
 import { Validator, PseudocodeGenerator, ValidationError } from '../core';
@@ -95,26 +93,22 @@ function App() {
     setSuccessMessage('');
   };
 
-  const handleSelectLevel = (level: Level) => {
-    const index = allLevels.findIndex(l => l.id === level.id);
-    if (index !== -1) setCurrentLevelIndex(index);
-    
-    // Limpiar mensajes de validación
-    setSuccessMessage('');
-    setErrors([]);
-    setPseudocode('');
-    
-    // Cargar starter XML si el nivel lo tiene
-    if (workspace && level.starterXml) {
+  useEffect(() => {
+    // Cargar starter XML al cambiar de nivel
+    if (workspace && selectedLevel?.starterXml) {
       workspace.clear();
       try {
-        const xml = Blockly.utils.xml.textToDom(level.starterXml);
+        const xml = Blockly.utils.xml.textToDom(selectedLevel.starterXml);
         Blockly.Xml.domToWorkspace(xml, workspace);
       } catch (error) {
         console.error('Error al cargar starter XML:', error);
       }
     }
-  };
+    // Reiniciar mensajes y pseudocódigo cuando cambia el nivel
+    setSuccessMessage('');
+    setErrors([]);
+    setPseudocode('');
+  }, [workspace, selectedLevel]);
 
   const handleMarkCompleted = () => {
     if (selectedLevel) {
@@ -154,25 +148,29 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="brand">
-          <img src="/src/assets/sunrise_lightning.svg" alt="Logo" className="brand-logo" />
+          <img src="/vite.svg" alt="Logo" className="brand-logo" />
           <h1>Pseudo-LWay</h1>
         </div>
+        <div className="header-status" role="status">
+          {successMessage
+            ? '✔ Ejercicio correcto'
+            : errors.length > 0
+              ? `✖ Corrige los bloques (${errors.length})`
+              : pseudocode
+                ? 'Generado, pendiente validación'
+                : 'Listo para generar pseudocódigo'}
+        </div>
         <button className="btn btn-reset" onClick={handleResetProgress} title="Reiniciar progreso">
-          🔄
+          ⟳
         </button>
       </header>
 
       <div className="app-content">
-        <LevelsSidebar 
-          onSelectLevel={handleSelectLevel} 
-          completedLevels={completedLevels}
-          currentLevelId={selectedLevel?.id}
-        />
-        <div className="levels-panel">
+        <div className="level-panel">
           {selectedLevel && (
             <div className="level-detail">
               <div className="level-header">
-                <h2>Nivel {currentLevelIndex + 1} — {selectedLevel.title}</h2>
+                <h2>N{currentLevelIndex + 1} — {selectedLevel.title}</h2>
                 {completedLevels[selectedLevel.id] && <span className="badge-completed">✅ Completado</span>}
               </div>
               
@@ -209,14 +207,14 @@ function App() {
                   onClick={handlePreviousLevel}
                   disabled={!canGoPrevious}
                 >
-                  ← Anterior
+                  ←
                 </button>
                 <button 
                   className="btn btn-primary" 
                   onClick={handleMarkCompleted}
                   disabled={completedLevels[selectedLevel.id]}
                 >
-                  {completedLevels[selectedLevel.id] ? '✓ Completado' : 'Marcar Completado'}
+                  {completedLevels[selectedLevel.id] ? '✓ Completado' : 'Marcar'}
                 </button>
                 <button 
                   className="btn btn-outline" 
@@ -224,12 +222,12 @@ function App() {
                   disabled={!canGoNext}
                   title={!completedLevels[selectedLevel.id] ? 'Completa este nivel primero' : ''}
                 >
-                  Siguiente →
+                  →
                 </button>
               </div>
 
               <div className="progress-indicator">
-                Progreso: {Object.keys(completedLevels).length} / {allLevels.length} niveles
+                Progreso: {Object.keys(completedLevels).length} / {allLevels.length}
               </div>
             </div>
           )}
@@ -238,6 +236,9 @@ function App() {
           <div className="panel-header">
             <h2>Editor de Bloques</h2>
             <div className="button-group">
+              <button className="btn btn-success" onClick={handleGenerate}>
+                ✅ Comprobar
+              </button>
               <button className="btn btn-primary" onClick={handleGenerate}>
                 🚀 Generar Pseudocódigo
               </button>
@@ -253,38 +254,41 @@ function App() {
 
         <div className="output-panel">
           <div className="panel-header">
-            <h2>Pseudocódigo Generado</h2>
+            <h2>Teoría y Términos</h2>
           </div>
 
           {successMessage && (
-            <div className="success-box">
+            <div className="info-box success">
               <h3>{successMessage}</h3>
             </div>
           )}
 
-          {errors.length > 0 && (
-            <div className="error-box">
-              <h3>❌ Errores de Validación:</h3>
-              <ul>
-                {errors.map((error, index) => (
-                  <li key={index}>{error}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {selectedLevel && (
+            <div className="theory-box">
+              <h3>Resumen del nivel</h3>
+              <p>{selectedLevel.description}</p>
 
-          {pseudocode && (
-            <div className="code-box">
-              <pre>{pseudocode}</pre>
-            </div>
-          )}
+              {selectedLevel.tips.length > 0 && (
+                <div className="theory-section">
+                  <h4>Conceptos clave</h4>
+                  <ul>
+                    {selectedLevel.tips.map((tip, idx) => (
+                      <li key={idx}>{tip}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-          {!pseudocode && errors.length === 0 && (
-            <div className="placeholder">
-              <p>
-                👈 Arrastra bloques desde la barra lateral para construir tu algoritmo.
-              </p>
-              <p>Luego presiona "Generar Pseudocódigo" para ver el resultado.</p>
+              {selectedLevel.exercise?.expected && (
+                <div className="theory-section">
+                  <h4>Ejemplo / salida esperada</h4>
+                  <pre>{selectedLevel.exercise.expected}</pre>
+                </div>
+              )}
+
+              <div className="note-box">
+                Usa los bloques para traducir estos conceptos a pseudocódigo. Genera para validar y ver si el ejercicio está correcto.
+              </div>
             </div>
           )}
         </div>
