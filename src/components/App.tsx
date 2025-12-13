@@ -1,8 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import * as Blockly from 'blockly';
 import { BlocklyEditor } from '../features/editor';
 import { LevelsSidebar } from './LevelsSidebar';
 import { LEVELS, Level } from '../features/levels/levels';
+import { UD01_LEVELS } from '../features/levels/ud01';
+import { UD02_LEVELS } from '../features/levels/ud02';
+import { SANDBOX_LEVEL } from '../features/levels/sandbox';
 import { BlocklyToASTConverter } from '../features/editor/blocklyConverter';
 import { Validator, PseudocodeGenerator, ValidationError } from '../core';
 import './App.css';
@@ -11,7 +14,7 @@ function App() {
   const [pseudocode, setPseudocode] = useState<string>('');
   const [errors, setErrors] = useState<string[]>([]);
   const [workspace, setWorkspace] = useState<Blockly.Workspace | null>(null);
-  const allLevels = useMemo(() => [...UD01_LEVELS, ...LEVELS], []);
+  const allLevels = useMemo(() => [...UD01_LEVELS, ...UD02_LEVELS, SANDBOX_LEVEL, ...LEVELS], []);
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [completedLevels, setCompletedLevels] = useState<Record<string, boolean>>({});
   
@@ -66,7 +69,17 @@ function App() {
   const handleSelectLevel = (level: Level) => {
     const index = allLevels.findIndex(l => l.id === level.id);
     if (index !== -1) setCurrentLevelIndex(index);
-    // En el futuro: cargar starterXml en el workspace
+    
+    // Cargar starter XML si el nivel lo tiene
+    if (workspace && level.starterXml) {
+      workspace.clear();
+      try {
+        const xml = Blockly.utils.xml.textToDom(level.starterXml);
+        Blockly.Xml.domToWorkspace(xml, workspace);
+      } catch (error) {
+        console.error('Error al cargar starter XML:', error);
+      }
+    }
   };
 
   const handleMarkCompleted = () => {

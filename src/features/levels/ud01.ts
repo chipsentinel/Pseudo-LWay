@@ -8,99 +8,125 @@ export const UD01_LEVELS: Level[] = [
     id: 'ud01-1-introduccion',
     title: 'Introducción al pseudocódigo',
     description:
-      'Qué es el pseudocódigo y por qué es útil. Convenciones y estilo básico.',
+      'Estructura básica de un algoritmo: Algoritmo/FinAlgoritmo. Aprende a escribir tu primer programa y mostrar mensajes en pantalla.',
     tips: [
-      'Usa nombres de variables descriptivos',
-      'Escribe paso a paso de forma clara',
-      'Mantén una indentación consistente',
+      'Todo algoritmo comienza con "Algoritmo <nombre>" y termina con "FinAlgoritmo"',
+      'Usa "Escribir" para mostrar mensajes y valores',
+      'Los textos van entre comillas: "Hola Mundo"',
     ],
     exercise: {
-      goal: 'Escribe un algoritmo con Algoritmo/FinAlgoritmo que muestre "Hola Pseudocódigo".',
-      expected: 'Algoritmo MiAlgoritmo\n    Escribir "Hola Pseudocódigo"\nFinAlgoritmo',
+      goal: 'Crea un algoritmo llamado "Bienvenida" que muestre el mensaje "¡Bienvenido a Pseudo-LWay!"',
+      expected: 'Algoritmo Bienvenida\n    Escribir "¡Bienvenido a Pseudo-LWay!"\nFinAlgoritmo',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">Bienvenida</field>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-2-tipos-datos',
     title: 'Tipos de datos básicos',
-    description: 'Entero, Real, Lógico, Cadena, Carácter (Java: int, double, boolean, String, char).',
+    description: 'Aprende los 5 tipos fundamentales: int (enteros), double (decimales), boolean (verdadero/falso), String (texto) y char (un carácter).',
     tips: [
-      'Elige el tipo según el uso: números, texto o condiciones',
-      'Convierte tipos si es necesario (p. ej. texto a número)',
+      'int: números enteros como 5, -10, 100',
+      'double: números con decimales como 3.14, -2.5',
+      'boolean: solo Verdadero o Falso',
+      'String: textos entre comillas como "Hola"',
+      'char: un solo carácter como "A"',
     ],
     exercise: {
-      goal: 'Declara 5 variables: int, double, boolean, String y char; escribe sus valores.',
+      goal: 'Declara 5 variables (edad:int, altura:double, activo:boolean, nombre:String, inicial:char) y muestra cada una.',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">TiposDatos</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">edad</field>
+        <field name="VAR_TYPE">Entero</field>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-3-entrada-salida',
-    title: 'Entrada y salida',
-    description: 'Leer y Escribir: interacción básica con el usuario.',
+    title: 'Entrada y salida de datos',
+    description: 'Interactúa con el usuario: pide datos con Leer y muéstralos con Escribir. La base de todo programa útil.',
     tips: [
-      'Muestra mensajes claros al pedir datos',
-      'Valida lo leído si es posible',
+      'Escribe un mensaje antes de Leer para que el usuario sepa qué introducir',
+      'Leer guarda el valor en una variable previamente definida',
+      'Puedes escribir texto y variables juntos',
     ],
     exercise: {
-      goal: 'Lee un nombre y una edad, luego escribe un saludo con ambos.',
+      goal: 'Pide el nombre y la edad del usuario, luego muestra "Hola [nombre], tienes [edad] años"',
     },
   },
   {
     id: 'ud01-4-asignacion-operadores',
-    title: 'Asignación y operadores',
-    description: 'Asignar valores y operar: aritméticos, relacionales y lógicos.',
+    title: 'Asignación y operadores aritméticos',
+    description: 'Usa la flecha <- para asignar valores. Realiza cálculos con +, -, *, /, % (módulo/resto).',
     tips: [
-      'Recuerda la flecha de asignación <-',
-      'Combina operadores para expresiones más útiles',
+      'La asignación va de derecha a izquierda: variable <- expresión',
+      'El módulo (%) devuelve el resto de una división: 7 % 3 = 1',
+      'Puedes combinar operaciones: (base * altura) / 2',
     ],
     exercise: {
-      goal: 'Calcula el área de un rectángulo a partir de base y altura leídas.',
+      goal: 'Pide base y altura de un rectángulo, calcula área (base*altura) y perímetro (2*base + 2*altura), muestra ambos.',
     },
   },
   {
     id: 'ud01-5-condicionales',
-    title: 'Condicionales (Si / Sino)',
-    description: 'Toma de decisiones con condiciones verdaderas o falsas.',
+    title: 'Condicionales: Si / Entonces / Sino',
+    description: 'Toma decisiones según condiciones. Usa operadores relacionales: =, !=, <, <=, >, >= para comparar.',
     tips: [
-      'Piensa en casos positivos y negativos',
-      'Usa Sino para la alternativa',
+      'Si <condición> Entonces ejecuta un bloque, Sino ejecuta otro',
+      'Un número es par si num % 2 = 0',
+      'Puedes anidar Si dentro de Si para decisiones múltiples',
     ],
     exercise: {
-      goal: 'Lee un número y di si es par o impar.',
+      goal: 'Pide un número y di si es positivo, negativo o cero. Luego di si es par o impar.',
     },
   },
   {
     id: 'ud01-6-bucles-mientras',
-    title: 'Bucles Mientras',
-    description: 'Repetición controlada por condición.',
+    title: 'Bucles: Mientras (While)',
+    description: 'Repite acciones mientras una condición sea verdadera. Ideal cuando no sabes cuántas veces repetir.',
     tips: [
-      'Asegúrate de que la condición pueda cambiar',
-      'Evita bucles infinitos',
+      'La condición se evalúa ANTES de cada repetición',
+      'Asegúrate de modificar la variable de control dentro del bucle',
+      'Evita bucles infinitos: la condición debe hacerse falsa en algún momento',
     ],
     exercise: {
-      goal: 'Lee N y escribe números desde N hasta 1 usando Mientras.',
+      goal: 'Pide N y cuenta regresiva desde N hasta 1, mostrando cada número (usa Mientras).',
     },
   },
   {
     id: 'ud01-7-bucles-para',
-    title: 'Bucles Para',
-    description: 'Contadores y rangos definidos.',
+    title: 'Bucles: Para (For)',
+    description: 'Itera un número exacto de veces con un contador. Más simple que Mientras cuando sabes las repeticiones.',
     tips: [
-      'Define inicio, fin y paso',
-      'El contador se incrementa automáticamente',
+      'Sintaxis: Para i <- inicio Hasta fin Con Paso incremento Hacer',
+      'El paso puede ser negativo para contar hacia atrás',
+      'Si omites el paso, por defecto es 1',
     ],
     exercise: {
-      goal: 'Lee N y cuenta del 1 al N usando Para.',
+      goal: 'Pide N y muestra la tabla de multiplicar del N del 1 al 10 (N x 1 = ..., N x 2 = ..., etc).',
     },
   },
   {
     id: 'ud01-8-casos-practicos',
-    title: 'Casos prácticos integradores',
-    description: 'Aplicación de todo lo aprendido en pequeños retos.',
+    title: 'Caso integrador: Estadísticas básicas',
+    description: 'Combina todo: entrada/salida, bucles, condicionales, operadores. Calcula suma, promedio, máximo y mínimo de N números.',
     tips: [
-      'Descompón el problema en pasos simples',
-      'Valida las entradas y muestra resultados claros',
+      'Usa un bucle Para para leer N números',
+      'Acumula la suma en una variable',
+      'Actualiza máximo y mínimo comparando en cada iteración',
+      'El promedio es suma / cantidad',
     ],
     exercise: {
-      goal: 'Sumar notas introducidas hasta introducir -1 y calcular la media.',
+      goal: 'Pide N, lee N números y calcula: suma total, promedio, número máximo y número mínimo.',
     },
   },
 ];
