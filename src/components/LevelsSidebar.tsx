@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Level } from '../features/levels/levels';
 import { UD01_LEVELS } from '../features/levels/ud01';
 
@@ -9,8 +8,6 @@ interface LevelsSidebarProps {
 }
 
 export function LevelsSidebar({ onSelectLevel, completedLevels = {}, currentLevelId }: LevelsSidebarProps) {
-  const allLevels = useMemo(() => [...UD01_LEVELS], []);
-
   return (
     <div className="levels-sidebar">
       <h2>📚 UD01: Fundamentos</h2>

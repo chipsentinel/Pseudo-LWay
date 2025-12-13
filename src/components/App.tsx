@@ -166,7 +166,7 @@ function App() {
         <LevelsSidebar 
           onSelectLevel={handleSelectLevel} 
           completedLevels={completedLevels}
-          currentLevelId={currentLevel.id}
+          currentLevelId={selectedLevel?.id}
         />
         <div className="levels-panel">
           {selectedLevel && (
