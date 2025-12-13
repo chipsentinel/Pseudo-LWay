@@ -81,9 +81,9 @@
 
 body {
   font-family: 'Segoe UI', 'Roboto', sans-serif;
-  background: radial-gradient(circle at 20% 15%, rgba(0, 216, 255, 0.05), transparent 35%),
-              radial-gradient(circle at 80% 10%, rgba(169, 60, 255, 0.05), transparent 32%),
-              radial-gradient(circle at 60% 70%, rgba(255, 200, 87, 0.04), transparent 35%),
+  background: radial-gradient(circle at 20% 15%, rgba(0, 216, 255, 0.12), transparent 35%),
+              radial-gradient(circle at 80% 10%, rgba(169, 60, 255, 0.12), transparent 32%),
+              radial-gradient(circle at 60% 70%, rgba(255, 200, 87, 0.08), transparent 35%),
               var(--bg-deep);
   color: var(--text-main);
   min-height: 100vh;
@@ -94,11 +94,12 @@ body {
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  background: linear-gradient(180deg, #0a0f1e, #050817);
 }
 
 /* Header - Compacto y futurista */
 .app-header {
-  background: linear-gradient(90deg, var(--bg-panel) 0%, #0f1a33 50%, var(--bg-panel) 100%);
+  background: linear-gradient(90deg, #0d1a35 0%, #0f2145 50%, #0d1a35 100%);
   border-bottom: 2px solid var(--c-cyan);
   padding: 0.7rem 1.2rem;
   display: grid;
@@ -135,10 +136,10 @@ body {
   font-size: 0.95rem;
   letter-spacing: 0.6px;
   border: 1px solid rgba(0, 217, 255, 0.35);
-  background: linear-gradient(90deg, rgba(0, 217, 255, 0.05), rgba(169, 60, 255, 0.05));
-  padding: 0.5rem 0.85rem;
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.12), rgba(169, 60, 255, 0.1));
+  padding: 0.55rem 0.9rem;
   border-radius: 6px;
-  box-shadow: inset 0 0 10px rgba(0, 217, 255, 0.12), 0 0 10px rgba(0, 217, 255, 0.12);
+  box-shadow: inset 0 0 14px rgba(0, 217, 255, 0.2), 0 0 16px rgba(0, 217, 255, 0.2);
   text-align: center;
 }
 
@@ -167,11 +168,11 @@ body {
   flex: 1;
   gap: 0;
   overflow: hidden;
-  background: var(--bg-deep);
+  background: linear-gradient(135deg, #0a1225 0%, #0d1530 100%);
 }
 
 .level-panel {
-  background: var(--bg-panel);
+  background: linear-gradient(180deg, #0d1a35, #0a1228);
   border-right: 1px solid #14314f;
   overflow-y: auto;
   background-image: linear-gradient(rgba(20, 49, 79, 0.3) 1px, transparent 1px),
@@ -182,7 +183,7 @@ body {
 /* Panels - Sin bordes redondeados, más espacio útil */
 .editor-panel,
 .output-panel {
-  background: var(--bg-panel-2);
+  background: linear-gradient(180deg, #0f1b35, #0d1628);
   border: 1px solid #14314f;
   display: flex;
   flex-direction: column;
@@ -197,7 +198,7 @@ body {
 .editor-container {
   flex: 1;
   min-height: 480px;
-  background: #0f1229;
+  background: linear-gradient(180deg, #0f1a35, #0d1628);
   background-image: linear-gradient(rgba(20, 49, 79, 0.35) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(20, 49, 79, 0.35) 1px, transparent 1px);
   background-size: 28px 28px;
@@ -207,6 +208,7 @@ body {
   border-left: 2px solid #00d9ff;
   min-width: 320px;
   max-width: 500px;
+  background: linear-gradient(180deg, #0f1b38, #0d1628);
 }
 
 /* Sidebar - Compacto y eficiente */
@@ -309,7 +311,7 @@ body {
 
 /* Level Detail - Compacto con info clara */
 .level-detail {
-  background: #151a35;
+  background: linear-gradient(180deg, #151d3a, #0f1830);
   padding: 1.2rem;
   border: 1px solid #2d3561;
   overflow-y: auto;
@@ -518,15 +520,30 @@ body {
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
 }
 
-.btn-secondary {
-  background: transparent;
-  color: #b0b8d4;
-  border-color: #2d3561;
+
+.btn-morado {
+  background: linear-gradient(90deg, var(--c-purple), var(--c-rose));
+  color: #fff;
+  border-color: var(--c-purple);
+  font-weight: 700;
 }
 
-.btn-secondary:hover {
-  color: #00d9ff;
-  border-color: #00d9ff;
+.btn-morado:hover {
+  background: linear-gradient(90deg, var(--c-rose), var(--c-purple));
+  border-color: var(--c-rose);
+  box-shadow: 0 0 20px rgba(169, 60, 255, 0.6);
+}
+
+.btn-warning {
+  background: #00d8ff;
+  color: #0a0e27;
+  border-color: #00d8ff;
+  font-weight: 700;
+}
+
+.btn-warning:hover {
+  background: #00bfdf;
+  box-shadow: 0 0 20px rgba(0, 216, 255, 0.6);
 }
 
 .btn-success {
@@ -623,6 +640,9 @@ body {
   flex-direction: column;
   gap: 0.9rem;
   color: #dbe5ff;
+  background: linear-gradient(135deg, rgba(0, 216, 255, 0.04), rgba(47, 123, 255, 0.04));
+  border-radius: 8px;
+  border: 1px solid rgba(0, 216, 255, 0.08);
 }
 
 .theory-box h3 {

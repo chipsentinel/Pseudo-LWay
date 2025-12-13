@@ -1,9 +1,12 @@
 import { Level } from './levels';
 
-// UD01 — Empezar a programar con Pseudocódigo (esqueleto basado en temario)
-// Nota: Contenido a completar con el PDF, aquí se definen los apartados y objetivos.
+// UD01 — Empezar a programar con Pseudocódigo
+// 50 niveles con dificultad progresiva importados desde ud01_extended.ts
 
-export const UD01_LEVELS: Level[] = [
+export { UD01_LEVELS } from './ud01_extended';
+
+// Niveles antiguos (8) - mantenidos como referencia histórica
+export const UD01_LEVELS_OLD: Level[] = [
   {
     id: 'ud01-1-introduccion',
     title: 'Introducción al pseudocódigo',

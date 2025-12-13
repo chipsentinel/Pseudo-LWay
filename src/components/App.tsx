@@ -70,7 +70,7 @@ function App() {
         const normalizedExpected = selectedLevel.exercise.expected.replace(/\s+/g, ' ').trim().toLowerCase();
         
         if (normalizedCode.includes(normalizedExpected) || normalizedExpected.includes(normalizedCode)) {
-          setSuccessMessage(`¡Excelente! 🐔✨ Has completado el ejercicio correctamente. Marca como completado para continuar.`);
+          setSuccessMessage(`¡Excelente! ✨ Has completado el ejercicio correctamente. Marca como completado para continuar.`);
         } else {
           setSuccessMessage('');
         }
@@ -158,7 +158,7 @@ function App() {
               ? `✖ Corrige los bloques (${errors.length})`
               : pseudocode
                 ? 'Generado, pendiente validación'
-                : 'Listo para generar pseudocódigo'}
+                : <span style={{color: '#00d9ff'}}>⚡ Listo para generar pseudocódigo</span>}
         </div>
         <button className="btn btn-reset" onClick={handleResetProgress} title="Reiniciar progreso">
           ⟳
@@ -236,14 +236,11 @@ function App() {
           <div className="panel-header">
             <h2>Editor de Bloques</h2>
             <div className="button-group">
-              <button className="btn btn-success" onClick={handleGenerate}>
-                ✅ Comprobar
-              </button>
               <button className="btn btn-primary" onClick={handleGenerate}>
-                🚀 Generar Pseudocódigo
+                🧠 Generar Pseudocódigo
               </button>
-              <button className="btn btn-secondary" onClick={handleClear}>
-                🗑️ Limpiar
+              <button className="btn btn-morado" onClick={handleClear}>
+                🧹 Limpiar
               </button>
             </div>
           </div>
