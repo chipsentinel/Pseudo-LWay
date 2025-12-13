@@ -45,6 +45,30 @@ export const UD01_LEVELS: Level[] = [
       <block type="pseudo_define">
         <field name="VAR_NAME">edad</field>
         <field name="VAR_TYPE">Entero</field>
+        <next>
+          <block type="pseudo_define">
+            <field name="VAR_NAME">altura</field>
+            <field name="VAR_TYPE">Real</field>
+            <next>
+              <block type="pseudo_define">
+                <field name="VAR_NAME">activo</field>
+                <field name="VAR_TYPE">Logico</field>
+                <next>
+                  <block type="pseudo_define">
+                    <field name="VAR_NAME">nombre</field>
+                    <field name="VAR_TYPE">Cadena</field>
+                    <next>
+                      <block type="pseudo_define">
+                        <field name="VAR_NAME">inicial</field>
+                        <field name="VAR_TYPE">Caracter</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
       </block>
     </next>
   </block>
@@ -62,6 +86,23 @@ export const UD01_LEVELS: Level[] = [
     exercise: {
       goal: 'Pide el nombre y la edad del usuario, luego muestra "Hola [nombre], tienes [edad] años"',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">Saludo</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">nombre</field>
+        <field name="VAR_TYPE">Cadena</field>
+        <next>
+          <block type="pseudo_define">
+            <field name="VAR_NAME">edad</field>
+            <field name="VAR_TYPE">Entero</field>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-4-asignacion-operadores',
