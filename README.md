@@ -1,32 +1,29 @@
 
-<div align="center">
-	<!-- Para desarrollo local usa /Pseudo-LWAY-logo.svg, para GitHub usa el enlace raw -->
-	<!-- Logo para GitHub y local. Si no se ve en local, usa /Pseudo-LWAY-logo.svg -->
-	<img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
-  
-	<h1>Pseudo-LWay</h1>
-  
-	<p>
-		<a href="https://img.shields.io/badge/version-1.0-blue?style=flat-square"><img src="https://img.shields.io/badge/version-1.0-blue?style=flat-square" alt="version"/></a>
-		<a href="https://img.shields.io/badge/status-beta-yellow?style=flat-square"><img src="https://img.shields.io/badge/status-beta-yellow?style=flat-square" alt="status"/></a>
-		<a href="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square" alt="React"/></a>
-		<a href="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square" alt="Vite"/></a>
-		<a href="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square" alt="TypeScript"/></a>
-		<a href="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square"><img src="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square" alt="Blockly"/></a>
-		<a href="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square"><img src="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square" alt="Integral"/></a>
-		<a href="https://img.shields.io/badge/license-MIT-green?style=flat-square"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"/></a>
-	</p>
 
-	<p><b>Editor visual de pseudocódigo educativo con temática neon y progresión gamificada</b></p>
-	<p>Aprende pseudocódigo de forma divertida y estructurada, con 50 niveles progresivos, feedback inmediato y una interfaz moderna inspirada en el logo y colores cyan, azul, morado y rosa.</p>
+<p align="center">
+	<img src="/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
+</p>
 
-	<p>
-		<a href="#características-principales">Características</a> •
-		<a href="#instalación-y-uso">Instalación</a> •
-		<a href="#cómo-jugar">Cómo Jugar</a> •
-		<a href="#desarrollo">Desarrollo</a>
-	</p>
-</div>
+# Pseudo-LWay
+
+<p align="center">
+	<a href="https://img.shields.io/badge/version-1.0-blue?style=flat-square"><img src="https://img.shields.io/badge/version-1.0-blue?style=flat-square" alt="version"/></a>
+	<a href="https://img.shields.io/badge/status-beta-yellow?style=flat-square"><img src="https://img.shields.io/badge/status-beta-yellow?style=flat-square" alt="status"/></a>
+	<a href="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square" alt="React"/></a>
+	<a href="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square" alt="Vite"/></a>
+	<a href="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square" alt="TypeScript"/></a>
+	<a href="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square"><img src="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square" alt="Blockly"/></a>
+	<a href="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square"><img src="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square" alt="Integral"/></a>
+	<a href="https://img.shields.io/badge/license-MIT-green?style=flat-square"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"/></a>
+</p>
+
+**Editor visual de pseudocódigo educativo con temática neon y progresión gamificada**
+
+Aprende pseudocódigo de forma divertida y estructurada, con 50 niveles progresivos, feedback inmediato y una interfaz moderna inspirada en el logo y colores cyan, azul, morado y rosa.
+
+---
+
+**[Características](#características-principales) • [Instalación](#instalación-y-uso) • [Cómo Jugar](#cómo-jugar) • [Desarrollo](#desarrollo)**
 
 
 ## 🌟 Características Principales
