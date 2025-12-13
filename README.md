@@ -1,20 +1,22 @@
 
 
 
-<div align="center">
-	<img src="/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
+<p align="center">
+  <img src="./public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
+</p>
 
-	<h1 style="text-align:center;">Pseudo-LWay</h1>
+<h1 align="center">Pseudo-LWay</h1>
 
-	<a href="https://img.shields.io/badge/version-1.0-blue?style=flat-square"><img src="https://img.shields.io/badge/version-1.0-blue?style=flat-square" alt="version"/></a>
-	<a href="https://img.shields.io/badge/status-beta-yellow?style=flat-square"><img src="https://img.shields.io/badge/status-beta-yellow?style=flat-square" alt="status"/></a>
-	<a href="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square" alt="React"/></a>
-	<a href="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square" alt="Vite"/></a>
-	<a href="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square" alt="TypeScript"/></a>
-	<a href="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square"><img src="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square" alt="Blockly"/></a>
-	<a href="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square"><img src="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square" alt="Integral"/></a>
-	<a href="https://img.shields.io/badge/license-MIT-green?style=flat-square"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"/></a>
-</div>
+<p align="center">
+  <a href="https://img.shields.io/badge/version-1.0-blue?style=flat-square"><img src="https://img.shields.io/badge/version-1.0-blue?style=flat-square" alt="version"/></a>
+  <a href="https://img.shields.io/badge/status-beta-yellow?style=flat-square"><img src="https://img.shields.io/badge/status-beta-yellow?style=flat-square" alt="status"/></a>
+  <a href="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white&style=flat-square" alt="React"/></a>
+  <a href="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square" alt="Vite"/></a>
+  <a href="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square" alt="TypeScript"/></a>
+  <a href="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square"><img src="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square" alt="Blockly"/></a>
+  <a href="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square"><img src="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square" alt="Integral"/></a>
+  <a href="https://img.shields.io/badge/license-MIT-green?style=flat-square"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"/></a>
+</p>
 
 **Editor visual de pseudocódigo educativo con temática neon y progresión gamificada**
 
