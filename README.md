@@ -1,6 +1,8 @@
 
 <div align="center">
-	<img src="public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
+	<!-- Para desarrollo local usa /Pseudo-LWAY-logo.svg, para GitHub usa el enlace raw -->
+	<!-- Logo para GitHub y local. Si no se ve en local, usa /Pseudo-LWAY-logo.svg -->
+	<img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
   
 	<h1>Pseudo-LWay</h1>
   
