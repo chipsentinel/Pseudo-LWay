@@ -3,9 +3,8 @@
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
-
-  <strong><h1 style="font-size:2.2em">Pseudo-LWay</h1></strong>
+  <img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" /><br>
+  <span style="font-size:2.2em; font-weight:bold;">Pseudo-LWay</span>
 </p>
 
 <p align="center">
