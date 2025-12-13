@@ -116,6 +116,23 @@ export const UD01_LEVELS: Level[] = [
     exercise: {
       goal: 'Pide base y altura de un rectángulo, calcula área (base*altura) y perímetro (2*base + 2*altura), muestra ambos.',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">Rectangulo</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">base</field>
+        <field name="VAR_TYPE">Real</field>
+        <next>
+          <block type="pseudo_define">
+            <field name="VAR_NAME">altura</field>
+            <field name="VAR_TYPE">Real</field>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-5-condicionales',
@@ -129,6 +146,17 @@ export const UD01_LEVELS: Level[] = [
     exercise: {
       goal: 'Pide un número y di si es positivo, negativo o cero. Luego di si es par o impar.',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">ParImpar</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">numero</field>
+        <field name="VAR_TYPE">Entero</field>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-6-bucles-mientras',
@@ -142,6 +170,23 @@ export const UD01_LEVELS: Level[] = [
     exercise: {
       goal: 'Pide N y cuenta regresiva desde N hasta 1, mostrando cada número (usa Mientras).',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">CuentaRegresiva</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">N</field>
+        <field name="VAR_TYPE">Entero</field>
+        <next>
+          <block type="pseudo_define">
+            <field name="VAR_NAME">contador</field>
+            <field name="VAR_TYPE">Entero</field>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-7-bucles-para',
@@ -155,6 +200,17 @@ export const UD01_LEVELS: Level[] = [
     exercise: {
       goal: 'Pide N y muestra la tabla de multiplicar del N del 1 al 10 (N x 1 = ..., N x 2 = ..., etc).',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">TablaMultiplicar</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">N</field>
+        <field name="VAR_TYPE">Entero</field>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
   {
     id: 'ud01-8-casos-practicos',
@@ -169,5 +225,34 @@ export const UD01_LEVELS: Level[] = [
     exercise: {
       goal: 'Pide N, lee N números y calcula: suma total, promedio, número máximo y número mínimo.',
     },
+    starterXml: `<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="pseudo_start" x="50" y="50">
+    <field name="ALGO_NAME">Estadisticas</field>
+    <next>
+      <block type="pseudo_define">
+        <field name="VAR_NAME">N</field>
+        <field name="VAR_TYPE">Entero</field>
+        <next>
+          <block type="pseudo_define">
+            <field name="VAR_NAME">suma</field>
+            <field name="VAR_TYPE">Real</field>
+            <next>
+              <block type="pseudo_define">
+                <field name="VAR_NAME">maximo</field>
+                <field name="VAR_TYPE">Real</field>
+                <next>
+                  <block type="pseudo_define">
+                    <field name="VAR_NAME">minimo</field>
+                    <field name="VAR_TYPE">Real</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,
   },
 ];
