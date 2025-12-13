@@ -1,7 +1,3 @@
-
-
-
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="240" />
   <span style="font-size:2.2em; font-weight:bold;">Pseudo-LWay</span>
@@ -204,4 +200,57 @@ src/
 ├── assets/              # Logos y mascota (sunrise_lightning.svg, poyo.svg)
 └── main.tsx            # Punto de entrada
 ```
-```
+
+# Pseudo-LWay
+
+Editor visual de pseudocódigo educativo con temática neon y progresión gamificada.  
+Frontend en React + TypeScript + Vite, estático y moderno. Backend simulado solo para persistencia local (localStorage).  
+Pensado para aprender, enseñar y extender fácilmente a más niveles o bloques.  
+Ideal para institutos, docentes y estudiantes que quieren practicar algoritmia de forma visual y divertida.
+
+---
+
+## 📖 Wiki
+
+- **¿Qué es?**  
+  Plataforma web para aprender y practicar pseudocódigo de forma visual, usando bloques tipo Blockly y niveles curriculares.
+- **¿Para quién?**  
+  Estudiantes de programación básica, docentes de informática, academias, autodidactas.
+- **¿Cómo funciona?**  
+  - Arrastra bloques para construir algoritmos.
+  - Avanza por 50 niveles progresivos (variables, bucles, arrays, funciones…).
+  - Feedback inmediato y validación automática.
+  - Progreso guardado en localStorage.
+- **¿Qué tecnologías usa?**  
+  - React, TypeScript, Vite, Blockly.
+  - Sin backend real: todo persistente en el navegador.
+- **¿Cómo extender?**  
+  - Añade más niveles en `src/features/levels/`.
+  - Crea nuevos bloques en `blockDefinitions.ts`.
+  - Personaliza estilos en `App.css`.
+
+---
+
+## 🚀 Improvements
+
+- [ ] Añadir exportación/importación de pseudocódigo y soluciones.
+- [ ] Soporte para cuentas multiusuario (con backend real).
+- [ ] Editor de bloques personalizado para docentes.
+- [ ] Modo oscuro y más temas visuales.
+- [ ] Integración con plataformas educativas (Google Classroom, Moodle).
+- [ ] Mejorar accesibilidad y soporte móvil.
+- [ ] Añadir más feedback visual y animaciones.
+- [ ] Traducción a más idiomas.
+
+---
+
+## 📊 Status
+
+- **Versión:** 1.0.0 (estable)
+- **Niveles:** 50 + laboratorio libre
+- **Persistencia:** localStorage (sin backend)
+- **UI:** Neon, responsive, accesible
+- **Documentación:** Completa en README y comentarios de código
+- **Roadmap:** Mejoras visuales, exportación, integración educativa
+
+---
