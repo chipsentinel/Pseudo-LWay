@@ -2,10 +2,8 @@ import { useState, useCallback, useMemo, useEffect } from 'react';
 import * as Blockly from 'blockly';
 import { BlocklyEditor } from '../features/editor';
 import { LevelsSidebar } from './LevelsSidebar';
-import { LEVELS, Level } from '../features/levels/levels';
+import { Level } from '../features/levels/levels';
 import { UD01_LEVELS } from '../features/levels/ud01';
-import { UD02_LEVELS } from '../features/levels/ud02';
-import { SANDBOX_LEVEL } from '../features/levels/sandbox';
 import { BlocklyToASTConverter } from '../features/editor/blocklyConverter';
 import { Validator, PseudocodeGenerator, ValidationError } from '../core';
 import './App.css';
@@ -14,7 +12,7 @@ function App() {
   const [pseudocode, setPseudocode] = useState<string>('');
   const [errors, setErrors] = useState<string[]>([]);
   const [workspace, setWorkspace] = useState<Blockly.Workspace | null>(null);
-  const allLevels = useMemo(() => [...UD01_LEVELS, ...UD02_LEVELS, SANDBOX_LEVEL, ...LEVELS], []);
+  const allLevels = useMemo(() => [...UD01_LEVELS], []);
   const [currentLevelIndex, setCurrentLevelIndex] = useState(() => {
     const saved = localStorage.getItem('pseudo-lway-current-level');
     return saved ? parseInt(saved, 10) : 0;
@@ -156,20 +154,21 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="brand">
-          <img src="/src/assets/sunrise_lightning.svg" alt="Sol naciente con rayo" className="brand-logo" />
-          <div className="brand-text">
-            <h1>Pseudo-LWay</h1>
-            <p>Editor visual de pseudocódigo estilo PSeInt</p>
-          </div>
+          <img src="/src/assets/sunrise_lightning.svg" alt="Logo" className="brand-logo" />
+          <h1>Pseudo-LWay</h1>
         </div>
         <button className="btn btn-reset" onClick={handleResetProgress} title="Reiniciar progreso">
-          🔄 Reset
+          🔄
         </button>
       </header>
 
       <div className="app-content">
+        <LevelsSidebar 
+          onSelectLevel={handleSelectLevel} 
+          completedLevels={completedLevels}
+          currentLevelId={currentLevel.id}
+        />
         <div className="levels-panel">
-          <LevelsSidebar onSelectLevel={handleSelectLevel} completedLevels={completedLevels} />
           {selectedLevel && (
             <div className="level-detail">
               <div className="level-header">
@@ -291,13 +290,7 @@ function App() {
         </div>
       </div>
 
-      <footer className="app-footer">
-        <p className="mascot">
-          <img src="/src/assets/poiyo.svg" alt="Poyo" />
-          Proyecto educativo DAW 1 — Pseudo-LWay v0.1.0
-        </p>
-        <p>Aprende jugando bajo el sol naciente ☀️🐔</p>
-      </footer>
+
     </div>
   );
 }
