@@ -89,17 +89,3 @@ export function LevelsSidebar({ onSelectLevel, completedLevels = {} }: LevelsSid
     </div>
   );
 }
-              {completedLevels[lvl.id] && <span className="level-check">✓</span>}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div className="sidebar-note">
-        <p>
-          Selecciona un nivel para cargar su descripción y consejos didácticos. Próximamente:
-          carga de bloques iniciales y pruebas automáticas.
-        </p>
-      </div>
-    </div>
-  );
-}

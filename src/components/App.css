@@ -25,6 +25,9 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   border-bottom: 2px solid #ff8a00;
   backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .app-header h1 {
@@ -37,6 +40,24 @@ body {
 .app-header p {
   color: #666;
   font-size: 1.1rem;
+}
+
+.btn-reset {
+  padding: 0.6rem 1.2rem;
+  background: #ef476f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background: #da190b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 71, 111, 0.4);
 }
 
 /* Content */

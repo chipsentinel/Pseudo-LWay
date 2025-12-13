@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import * as Blockly from 'blockly';
 import { BlocklyEditor } from '../features/editor';
 import { LevelsSidebar } from './LevelsSidebar';
@@ -15,11 +15,26 @@ function App() {
   const [errors, setErrors] = useState<string[]>([]);
   const [workspace, setWorkspace] = useState<Blockly.Workspace | null>(null);
   const allLevels = useMemo(() => [...UD01_LEVELS, ...UD02_LEVELS, SANDBOX_LEVEL, ...LEVELS], []);
-  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
-  const [completedLevels, setCompletedLevels] = useState<Record<string, boolean>>({});
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(() => {
+    const saved = localStorage.getItem('pseudo-lway-current-level');
+    return saved ? parseInt(saved, 10) : 0;
+  });
+  const [completedLevels, setCompletedLevels] = useState<Record<string, boolean>>(() => {
+    const saved = localStorage.getItem('pseudo-lway-completed');
+    return saved ? JSON.parse(saved) : {};
+  });
   const [successMessage, setSuccessMessage] = useState<string>('');
   
   const selectedLevel = allLevels[currentLevelIndex];
+
+  // Guardar progreso en localStorage
+  useEffect(() => {
+    localStorage.setItem('pseudo-lway-current-level', currentLevelIndex.toString());
+  }, [currentLevelIndex]);
+
+  useEffect(() => {
+    localStorage.setItem('pseudo-lway-completed', JSON.stringify(completedLevels));
+  }, [completedLevels]);
 
   const handleWorkspaceChange = useCallback((ws: Blockly.Workspace) => {
     setWorkspace(ws);
@@ -122,6 +137,18 @@ function App() {
     }
   };
 
+  const handleResetProgress = () => {
+    if (window.confirm('¿Seguro que quieres reiniciar todo tu progreso? Esta acción no se puede deshacer.')) {
+      localStorage.removeItem('pseudo-lway-current-level');
+      localStorage.removeItem('pseudo-lway-completed');
+      setCurrentLevelIndex(0);
+      setCompletedLevels({});
+      setPseudocode('');
+      setErrors([]);
+      setSuccessMessage('');
+    }
+  };
+
   const canGoNext = completedLevels[selectedLevel.id] && currentLevelIndex < allLevels.length - 1;
   const canGoPrevious = currentLevelIndex > 0;
 
@@ -135,6 +162,9 @@ function App() {
             <p>Editor visual de pseudocódigo estilo PSeInt</p>
           </div>
         </div>
+        <button className="btn btn-reset" onClick={handleResetProgress} title="Reiniciar progreso">
+          🔄 Reset
+        </button>
       </header>
 
       <div className="app-content">
