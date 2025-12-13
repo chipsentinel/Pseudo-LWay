@@ -4,9 +4,8 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
-</p>
 
-<h1 align="center">Pseudo-LWay</h1>
+  <strong><h1 style="font-size:2.2em">Pseudo-LWay</h1></strong>
 </p>
 
 <p align="center">
