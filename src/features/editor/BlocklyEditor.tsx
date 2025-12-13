@@ -7,6 +7,45 @@ interface BlocklyEditorProps {
   onWorkspaceChange?: (workspace: Blockly.Workspace) => void;
 }
 
+// Tema personalizado para bloques y toolbox con la paleta actual
+const neonTheme = Blockly.Theme.defineTheme('pseudoNeon', {
+  name: 'pseudoNeon',
+  blockStyles: {
+    program: { colourPrimary: '#00d8ff', colourSecondary: '#0ba7c7', colourTertiary: '#0b5c74' },
+    variables: { colourPrimary: '#a93cff', colourSecondary: '#8734d1', colourTertiary: '#5c248f' },
+    io: { colourPrimary: '#06d6a0', colourSecondary: '#05b485', colourTertiary: '#048764' },
+    control: { colourPrimary: '#ffc857', colourSecondary: '#d6a94c', colourTertiary: '#a17f3b' },
+    values: { colourPrimary: '#2f7bff', colourSecondary: '#2562cc', colourTertiary: '#1c4c99' },
+    operators: { colourPrimary: '#ef476f', colourSecondary: '#c63b5c', colourTertiary: '#942c45' },
+  },
+  categoryStyles: {
+    program_category: { colour: '#00d8ff' },
+    variables_category: { colour: '#a93cff' },
+    io_category: { colour: '#06d6a0' },
+    control_category: { colour: '#ffc857' },
+    values_category: { colour: '#2f7bff' },
+    operators_category: { colour: '#ef476f' },
+  },
+  componentStyles: {
+    toolboxBackgroundColour: '#0b1228',
+    toolboxForegroundColour: '#dbe5ff',
+    flyoutBackgroundColour: '#0f1b35',
+    flyoutForegroundColour: '#dbe5ff',
+    flyoutOpacity: 1,
+    scrollbarColour: '#2d3561',
+    insertionMarkerColour: '#00d8ff',
+    insertionMarkerOpacity: 0.5,
+    markerColour: '#00d8ff',
+    cursorColour: '#00d8ff',
+    selectedGlowColour: '#00d8ff',
+  },
+  fontStyle: {
+    family: 'Segoe UI, Roboto, sans-serif',
+    weight: '600',
+    size: 12,
+  },
+});
+
 /**
  * Componente editor visual con Blockly
  */
@@ -23,8 +62,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
       contents: [
         {
           kind: 'category',
-          name: 'Programa',
-          colour: '300',
+          name: '⚡ Programa',
+          categorystyle: 'program_category',
           contents: [
             { kind: 'block', type: 'pseudo_start' },
             { kind: 'block', type: 'pseudo_end' },
@@ -32,8 +71,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
         },
         {
           kind: 'category',
-          name: 'Variables',
-          colour: '160',
+          name: '📦 Variables',
+          categorystyle: 'variables_category',
           contents: [
             { kind: 'block', type: 'pseudo_define' },
             { kind: 'block', type: 'pseudo_assign' },
@@ -42,8 +81,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
         },
         {
           kind: 'category',
-          name: 'Entrada/Salida',
-          colour: '120',
+          name: '📥 Entrada / Salida',
+          categorystyle: 'io_category',
           contents: [
             { kind: 'block', type: 'pseudo_read' },
             { kind: 'block', type: 'pseudo_write' },
@@ -51,8 +90,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
         },
         {
           kind: 'category',
-          name: 'Control',
-          colour: '210',
+          name: '🔀 Control',
+          categorystyle: 'control_category',
           contents: [
             { kind: 'block', type: 'pseudo_if' },
             { kind: 'block', type: 'pseudo_while' },
@@ -61,8 +100,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
         },
         {
           kind: 'category',
-          name: 'Valores',
-          colour: '230',
+          name: '🔢 Valores',
+          categorystyle: 'values_category',
           contents: [
             { kind: 'block', type: 'pseudo_number' },
             { kind: 'block', type: 'pseudo_text' },
@@ -71,8 +110,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
         },
         {
           kind: 'category',
-          name: 'Operadores',
-          colour: '230',
+          name: '⚙️ Operadores',
+          categorystyle: 'operators_category',
           contents: [
             { kind: 'block', type: 'pseudo_arithmetic' },
             { kind: 'block', type: 'pseudo_comparison' },
@@ -88,6 +127,8 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
       toolbox,
       scrollbars: true,
       trashcan: true,
+      renderer: 'zelos',
+      theme: neonTheme,
       zoom: {
         controls: true,
         wheel: true,
@@ -97,9 +138,9 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
         scaleSpeed: 1.2,
       },
       grid: {
-        spacing: 20,
+        spacing: 24,
         length: 3,
-        colour: '#ccc',
+        colour: '#14203a',
         snap: true,
       },
     });
