@@ -1,0 +1,39 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Gradiente gorro -->
+  <defs>
+    <linearGradient id="hatGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3B82F6"></stop>
+      <stop offset="100%" stop-color="#A855F7"></stop>
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FACC15"></stop>
+      <stop offset="100%" stop-color="#F59E0B"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Sol -->
+  <path d="M128 256a128 128 0 0 1 256 0v64H128v-64z" fill="url(#sunGradient)"></path>
+
+  <!-- Rayos del sol -->
+  <g stroke="#FACC15" stroke-width="16" stroke-linecap="round">
+    <line x1="256" y1="96" x2="256" y2="48"></line>
+    <line x1="176" y1="120" x2="144" y2="80"></line>
+    <line x1="336" y1="120" x2="368" y2="80"></line>
+    <line x1="128" y1="176" x2="80" y2="176"></line>
+    <line x1="384" y1="176" x2="432" y2="176"></line>
+  </g>
+
+  <!-- Ojos -->
+  <g stroke="#F59E0B" stroke-width="14" stroke-linecap="round">
+    <line x1="200" y1="240" x2="240" y2="240"></line>
+    <line x1="272" y1="240" x2="312" y2="240"></line>
+  </g>
+
+  <!-- Gorro chino -->
+  <path d="
+    M96 320
+    Q256 240 416 320
+    Q256 360 96 320 Z" fill="url(#hatGradient)"></path>
+
+</svg>

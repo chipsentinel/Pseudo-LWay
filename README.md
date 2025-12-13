@@ -1,6 +1,6 @@
 
 <div align="center">
-	<img src="/assets/logo-sunrise.png" alt="Pseudo-LWay Logo" width="120" />
+	<img src="public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
   
 	<h1>Pseudo-LWay</h1>
   
