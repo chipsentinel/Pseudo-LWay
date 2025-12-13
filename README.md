@@ -1,5 +1,5 @@
-
-
+﻿# Pseudo-LWay
+Editor visual de pseudocódigo educativo con temática neon y progresión gamificada.
 
 
 <p align="center">
