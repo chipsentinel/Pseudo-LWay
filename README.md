@@ -3,7 +3,7 @@
 
 
 <p align="center">
-  <img src="Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
+  <img src="https://raw.githubusercontent.com/chipsentinel/Pseudo-LWay/dev/public/Pseudo-LWAY-logo.svg" alt="Pseudo-LWay Logo" width="120" />
 
   <strong><span style="font-size:2.2em">Pseudo-LWay</span></strong>
 </p>
