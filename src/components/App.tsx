@@ -266,12 +266,11 @@ function App() {
                 <div className="level-section exercise-box">
                   <h3>🎯 Ejercicio del Nivel</h3>
                   <p className="exercise-goal">{selectedLevel.exercise.goal}</p>
-                  {selectedLevel.exercise.expected && (
-                    <details className="expected-output">
-                      <summary>Ver salida esperada</summary>
-                      <pre>{selectedLevel.exercise.expected}</pre>
-                    </details>
-                  )}
+                  {/* Mostrar siempre la pestaña de salida esperada, aunque expected sea vacío */}
+                  <details className="expected-output" open={!!selectedLevel.exercise.expected}>
+                    <summary>Ver salida esperada</summary>
+                    <pre>{selectedLevel.exercise.expected ? selectedLevel.exercise.expected : 'No se ha definido una salida esperada para este nivel.'}</pre>
+                  </details>
                 </div>
               )}
               {/* Navegación entre niveles */}
@@ -350,12 +349,10 @@ function App() {
                   </ul>
                 </div>
               )}
-              {selectedLevel.exercise?.expected && (
-                <div className="theory-section">
-                  <h4>Ejemplo / salida esperada</h4>
-                  <pre>{selectedLevel.exercise.expected}</pre>
-                </div>
-              )}
+              {/*
+                No mostrar la salida esperada en teoría/terminos.
+                Si se quiere mostrar un ejemplo, debe agregarse un campo específico (ejemplo) en el nivel.
+              */}
               <div className="note-box">
                 Usa los bloques para traducir estos conceptos a pseudocódigo. Genera para validar y ver si el ejercicio está correcto.
               </div>
