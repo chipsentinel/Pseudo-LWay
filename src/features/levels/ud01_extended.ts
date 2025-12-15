@@ -1,6 +1,10 @@
+
+// Importa el tipo Level para definir los niveles progresivos de la unidad didáctica 01.
 import { Level } from './levels';
 
-// 50 NIVELES PROGRESIVOS - De básico a avanzado
+// 50 NIVELES PROGRESIVOS - De básico a avanzado.
+// Cada nivel incrementa la dificultad y cubre conceptos fundamentales de programación.
+// Esta lista es la fuente principal para la progresión de la UD01.
 export const UD01_LEVELS: Level[] = [
   // NIVELES 1-5: FUNDAMENTOS BÁSICOS
   {

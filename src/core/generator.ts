@@ -82,6 +82,10 @@ export class PseudocodeGenerator {
     }
   }
 
+  /**
+   * Genera el pseudocódigo para una estructura condicional Si-Entonces-Sino.
+   * Incluye bloques "entonces" y opcionalmente "sino".
+   */
   private generateIf(statement: {
     kind: 'if';
     condition: Expression;
@@ -116,6 +120,10 @@ export class PseudocodeGenerator {
     return lines;
   }
 
+  /**
+   * Genera el pseudocódigo para un bucle Mientras.
+   * Incluye la condición y el cuerpo del bucle.
+   */
   private generateWhile(statement: {
     kind: 'while';
     condition: Expression;
@@ -139,6 +147,10 @@ export class PseudocodeGenerator {
     return lines;
   }
 
+  /**
+   * Genera el pseudocódigo para un bucle Para.
+   * Incluye contador, inicio, fin, paso y cuerpo del bucle.
+   */
   private generateFor(statement: {
     kind: 'for';
     counter: string;
@@ -169,6 +181,10 @@ export class PseudocodeGenerator {
     return lines;
   }
 
+  /**
+   * Genera el texto correspondiente a una expresión.
+   * Soporta literales, variables, operaciones binarias y unarias.
+   */
   private generateExpression(expression: Expression): string {
     switch (expression.kind) {
       case 'literal':
@@ -188,6 +204,10 @@ export class PseudocodeGenerator {
     }
   }
 
+  /**
+   * Convierte un valor literal a su representación en pseudocódigo.
+   * Maneja strings, booleanos y números.
+   */
   private generateLiteral(value: string | number | boolean): string {
     if (typeof value === 'string') {
       return `"${value}"`;
@@ -198,6 +218,9 @@ export class PseudocodeGenerator {
     return String(value);
   }
 
+  /**
+   * Mapea los tipos de datos internos a su equivalente en Java (para mostrar en pseudocódigo).
+   */
   private mapTypeToJava(type: import('./types').DataType): string {
     switch (type) {
       case 'Entero':
@@ -215,6 +238,9 @@ export class PseudocodeGenerator {
     }
   }
 
+  /**
+   * Añade la indentación adecuada a una línea de pseudocódigo según el nivel actual.
+   */
   private indent(text: string): string {
     return this.INDENT.repeat(this.indentLevel) + text;
   }

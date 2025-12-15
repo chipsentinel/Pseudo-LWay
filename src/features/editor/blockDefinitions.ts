@@ -1,11 +1,17 @@
+
+// Importa la librería Blockly y los tipos de datos del núcleo.
 import * as Blockly from 'blockly';
 import { DataType } from '../../core';
 
+
 /**
- * Definiciones de bloques personalizados para Pseudo-LWay
+ * Definiciones de bloques personalizados para Pseudo-LWay.
+ * Cada bloque representa una construcción del pseudocódigo (inicio, fin, definir, asignar, leer, escribir, control, etc).
+ * Se definen usando la API de Blockly y se asocian a tipos y colores específicos.
  */
 
-// Bloque: Inicio de Algoritmo
+// Bloque: Inicio de Algoritmo.
+// Representa la cabecera de un algoritmo con su nombre.
 Blockly.Blocks['pseudo_start'] = {
   init: function () {
     this.appendDummyInput()
@@ -19,7 +25,8 @@ Blockly.Blocks['pseudo_start'] = {
   },
 };
 
-// Bloque: Fin de Algoritmo
+// Bloque: Fin de Algoritmo.
+// Marca el final del algoritmo.
 Blockly.Blocks['pseudo_end'] = {
   init: function () {
     this.appendDummyInput().appendField('FinAlgoritmo');
@@ -31,7 +38,8 @@ Blockly.Blocks['pseudo_end'] = {
   },
 };
 
-// Bloque: Definir variable
+// Bloque: Definir variable.
+// Permite declarar una variable con nombre y tipo.
 Blockly.Blocks['pseudo_define'] = {
   init: function () {
     this.appendDummyInput()

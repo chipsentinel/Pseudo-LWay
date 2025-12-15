@@ -1,9 +1,14 @@
+
+// Importa el tipo Level para definir los niveles de la unidad didáctica 02 (arreglos).
 import type { Level } from './levels';
 
 /**
- * UD02: Arrays (Arreglos) - Estructuras de datos lineales
- * Niveles dedicados a arreglos unidimensionales en PSeInt
+ * UD02: Arrays - Estructuras de datos lineales.
+ * Niveles dedicados a arreglos unidimensionales en PSeInt.
+ * Cada nivel introduce conceptos clave sobre declaración, recorrido y manipulación de arreglos.
  */
+// Lista de niveles para la unidad didáctica 02 (arreglos).
+// Progresión desde la declaración hasta operaciones avanzadas sobre arreglos.
 export const UD02_LEVELS: Level[] = [
   {
     id: 'ud02-1-declarar-arreglo',

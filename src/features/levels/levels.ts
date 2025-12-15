@@ -1,15 +1,28 @@
+
+// Tipo que representa un nivel del editor.
+// Cada nivel define un reto o ejercicio con instrucciones y ayudas.
 export interface Level {
+  /** Identificador único del nivel */
   id: string;
+  /** Título breve del nivel */
   title: string;
+  /** Descripción del objetivo del nivel */
   description: string;
+  /** Consejos o pistas para el usuario */
   tips: string[];
+  /** XML inicial opcional para el workspace de bloques */
   starterXml?: string;
+  /** Ejercicio asociado con meta y resultado esperado */
   exercise?: {
+    /** Descripción de la meta del ejercicio */
     goal: string;
+    /** Resultado esperado opcional para validación automática */
     expected?: string;
   };
 }
 
+// Lista de niveles predefinidos para la unidad didáctica 01.
+// Cada objeto representa un reto progresivo para el usuario.
 export const LEVELS: Level[] = [
   // UD01 — secciones del temario (placeholder)
   {

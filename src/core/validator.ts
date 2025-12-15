@@ -79,12 +79,10 @@ export class Validator {
 
   /**
    * Valida una sentencia individual.
-   * Usa un switch para determinar qué tipo de sentencia es y llamar
-   * al método específico correspondiente.
-   * 
-   * Patrón importante: Discriminated Union
-   * El campo 'kind' nos dice qué tipo de sentencia es, y TypeScript
-   * automáticamente sabe qué propiedades tiene cada tipo.
+   * Usa un switch para determinar el tipo de sentencia y delega en el método correspondiente.
+   *
+   * Patrón: Discriminated Union.
+   * El campo 'kind' permite a TypeScript inferir el tipo exacto y sus propiedades.
    */
   private validateStatement(statement: Statement): void {
     switch (statement.kind) {
@@ -114,9 +112,9 @@ export class Validator {
 
   /**
    * Valida la declaración de una variable (Definir).
-   * 
+   *
    * Regla: No se puede declarar dos veces la misma variable.
-   * Si ya existe, añadimos un error. Si no existe, la registramos.
+   * Si ya existe, se reporta error. Si no existe, se registra en el Map.
    */
   private validateDefine(statement: { kind: 'define'; name: string; dataType: DataType }): void {
     // Map.has() verifica si una clave ya existe en el diccionario
@@ -135,10 +133,10 @@ export class Validator {
 
   /**
    * Valida una asignación (variable <- expresión).
-   * 
-   * Dos comprobaciones:
-   * 1. La variable debe existir (debe estar declarada antes)
-   * 2. La expresión del lado derecho debe ser válida
+   *
+   * Comprueba:
+   * 1. Que la variable exista (debe estar declarada previamente)
+   * 2. Que la expresión a asignar sea válida
    */
   private validateAssign(statement: { kind: 'assign'; variable: string; expression: Expression }): void {
     // Verificamos que la variable exista
@@ -152,7 +150,7 @@ export class Validator {
 
   /**
    * Valida una sentencia Leer.
-   * Solo verifica que la variable donde vamos a guardar el dato exista.
+   * Verifica que la variable de destino esté declarada.
    */
   private validateRead(statement: { kind: 'read'; variable: string }): void {
     if (!this.variables.has(statement.variable)) {
@@ -162,7 +160,7 @@ export class Validator {
 
   /**
    * Valida una sentencia Escribir.
-   * Solo valida que la expresión a mostrar sea correcta.
+   * Valida que la expresión a mostrar sea correcta.
    */
   private validateWrite(statement: { kind: 'write'; expression: Expression }): void {
     this.validateExpression(statement.expression);
@@ -170,11 +168,11 @@ export class Validator {
 
   /**
    * Valida una estructura Si (condicional).
-   * 
-   * Valida tres partes:
-   * 1. La condición debe ser una expresión válida
-   * 2. El bloque "Entonces" debe tener sentencias válidas
-   * 3. El bloque "Sino" (si existe) debe tener sentencias válidas
+   *
+   * Valida:
+   * 1. La condición (debe ser expresión booleana válida)
+   * 2. El bloque "entonces" (sentencias si la condición es verdadera)
+   * 3. El bloque "sino" (opcional, sentencias si la condición es falsa)
    */
   private validateIf(statement: {
     kind: 'if';
@@ -196,7 +194,7 @@ export class Validator {
 
   /**
    * Valida un bucle Mientras.
-   * Similar al Si, pero solo tiene un bloque de código.
+   * Valida la condición y el cuerpo del bucle.
    */
   private validateWhile(statement: {
     kind: 'while';
@@ -212,10 +210,9 @@ export class Validator {
 
   /**
    * Valida un bucle Para.
-   * 
-   * Característica especial: el contador se declara automáticamente.
-   * En PSeInt, no necesitas hacer "Definir i Como Entero" antes del Para.
-   * El Para automáticamente crea la variable contador.
+   *
+   * Característica: el contador se declara automáticamente como entero.
+   * No es necesario definirlo antes del bucle.
    */
   private validateFor(statement: {
     kind: 'for';
@@ -249,13 +246,9 @@ export class Validator {
 
   /**
    * Valida una expresión de forma recursiva.
-   * 
-   * Las expresiones pueden ser simples (un número) o complejas (a + b * c).
-   * Este método se llama recursivamente para validar expresiones anidadas.
-   * 
-   * Ejemplo de recursión:
-   * Para validar "(a + b) * c", primero valida "a + b", lo que requiere
-   * validar "a" y "b" por separado, y luego valida "c".
+   *
+   * Las expresiones pueden ser simples (literal, variable) o complejas (operaciones anidadas).
+   * Este método se llama recursivamente para validar subexpresiones.
    */
   private validateExpression(expression: Expression): void {
     switch (expression.kind) {
@@ -284,9 +277,9 @@ export class Validator {
   }
 
   /**
-   * Método auxiliar para añadir un error a la lista.
-   * Centraliza la creación de errores en un solo lugar.
-   * 
+   * Añade un error a la lista de errores encontrados.
+   * Centraliza la gestión de errores de validación.
+   *
    * @param message - Mensaje descriptivo del error
    * @param location - Ubicación opcional del error (para futuras mejoras)
    */

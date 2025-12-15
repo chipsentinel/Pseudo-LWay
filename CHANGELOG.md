@@ -20,14 +20,6 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
   7. Bucles Para (contador definido)
   8. Caso integrador (estadísticas con suma, promedio, máx, mín)
 
-- **UD02: Arrays** (6 niveles teóricos)
-  - Declaración y acceso a arreglos
-  - Recorrido con bucles Para
-  - Búsqueda de máximo/mínimo
-  - Suma de elementos
-  - Búsqueda de elemento específico
-  - Inversión de arreglo
-
 - **🧪 Laboratorio Sandbox**
   - Zona libre para experimentación sin restricciones
   - Sin objetivos ni validación
@@ -182,31 +174,21 @@ fbe99ac - style(ui): tema sunrise oriental elegante con tipografía y spacing me
 - ESLint configurado
 - Vite con hot reload
 
-## [Unreleased] - Roadmap Futuro
+## Referencias y Pull Requests
 
-### 🚀 Por Implementar
-- [ ] Persistencia local con IndexedDB
-- [ ] Exportar a Java
-- [ ] Simulador paso a paso
-- [ ] Arreglos y funciones
-- [ ] PWA con service worker
-- [ ] Modo oscuro
-- [ ] Compartir proyectos (export/import JSON)
-- [ ] Tests unitarios e integración
-- [ ] Internacionalización (i18n)
-- [ ] Tutorial interactivo
-- [ ] Ejemplos precargados
-- [ ] Depurador visual
-- [ ] Análisis de complejidad
+- Para cambios mayores, consulta los issues y pull requests asociados en el repositorio.
+- Ejemplo: [#12](https://github.com/tu-usuario/Pseudo-LWay/issues/12) - Mejora de validación de ejercicios
+- Ejemplo: [PR #34](https://github.com/tu-usuario/Pseudo-LWay/pull/34) - Refactorización de la arquitectura core
 
-### 🐛 Bugs Conocidos
-Ninguno reportado en esta versión inicial.
+## Migraciones y Cambios Incompatibles
 
-### 📝 Notas de Desarrollo
-- Proyecto creado como herramienta educativa para DAW 1
-- Enfoque en simplicidad y usabilidad
-- Arquitectura modular para fácil extensión
-- Sin dependencias de backend (100% frontend)
+- Actualmente no hay migraciones ni breaking changes.
+- Si en futuras versiones se requiere intervención manual, se documentará aquí con pasos detallados.
+
+## Cambios Incompatibles (Breaking Changes)
+
+- No se han introducido cambios incompatibles hasta la fecha.
+- Si los hubiera, se describirán aquí junto con instrucciones de migración.
 
 ---
 

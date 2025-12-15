@@ -9,11 +9,13 @@ import {
 } from '../../core';
 
 /**
- * Convierte el workspace de Blockly a nuestro AST interno
+  * Convierte el workspace de Blockly a la representación interna (AST) del programa.
+  * Permite analizar y validar los algoritmos construidos visualmente.
  */
 export class BlocklyToASTConverter {
   /**
-   * Convierte el workspace completo a un Program
+  * Convierte el workspace completo de Blockly a un objeto Program (AST raíz).
+  * Extrae bloques de inicio/fin y todas las sentencias ejecutables.
    */
   convertWorkspace(workspace: Blockly.Workspace, programName: string = 'MiAlgoritmo'): Program {
     const topBlocks = workspace.getTopBlocks(true);
@@ -50,7 +52,8 @@ export class BlocklyToASTConverter {
   }
 
   /**
-   * Convierte un bloque individual a Statement
+  * Convierte un bloque individual de Blockly a una sentencia (Statement).
+  * Usa el tipo de bloque para delegar en el método de conversión adecuado.
    */
   private convertBlock(block: Blockly.Block): Statement | null {
     switch (block.type) {
@@ -75,6 +78,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertDefine(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque de definición de variable a Statement.
+      */
     const name = block.getFieldValue('VAR_NAME') as string;
     const dataType = block.getFieldValue('VAR_TYPE') as DataType;
 
@@ -86,6 +92,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertAssign(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque de asignación a Statement.
+      */
     const variable = block.getFieldValue('VAR_NAME') as string;
     const valueBlock = block.getInputTargetBlock('VALUE');
 
@@ -101,6 +110,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertRead(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque de lectura (Leer) a Statement.
+      */
     const variable = block.getFieldValue('VAR_NAME') as string;
 
     return {
@@ -110,6 +122,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertWrite(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque de escritura (Escribir) a Statement.
+      */
     const valueBlock = block.getInputTargetBlock('VALUE');
 
     const expression: Expression = valueBlock
@@ -123,6 +138,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertIf(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque condicional (Si) a Statement.
+      */
     const conditionBlock = block.getInputTargetBlock('CONDITION');
     const condition: Expression = conditionBlock
       ? this.convertExpression(conditionBlock)
@@ -140,6 +158,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertWhile(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque de bucle Mientras a Statement.
+      */
     const conditionBlock = block.getInputTargetBlock('CONDITION');
     const condition: Expression = conditionBlock
       ? this.convertExpression(conditionBlock)
@@ -155,6 +176,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertFor(block: Blockly.Block): Statement {
+      /**
+      * Convierte un bloque de bucle Para a Statement.
+      */
     const counter = block.getFieldValue('COUNTER') as string;
 
     const startBlock = block.getInputTargetBlock('START');
@@ -185,7 +209,8 @@ export class BlocklyToASTConverter {
   }
 
   /**
-   * Convierte una lista de bloques encadenados a Statement[]
+  * Convierte una lista de bloques encadenados a un array de sentencias (Statement[]).
+  * Recorre la cadena de bloques conectados y los convierte recursivamente.
    */
   private convertStatementList(firstBlock: Blockly.Block | null): Statement[] {
     const statements: Statement[] = [];
@@ -203,7 +228,8 @@ export class BlocklyToASTConverter {
   }
 
   /**
-   * Convierte un bloque de expresión a Expression
+  * Convierte un bloque de expresión a Expression.
+  * Soporta literales, variables, operaciones binarias y unarias.
    */
   private convertExpression(block: Blockly.Block): Expression {
     switch (block.type) {
@@ -261,6 +287,9 @@ export class BlocklyToASTConverter {
     block: Blockly.Block,
     _type: 'arithmetic' | 'comparison' | 'logic'
   ): Expression {
+  /**
+  * Convierte un bloque de operación binaria (aritmética, comparación, lógica) a Expression.
+  */
     const leftBlock = block.getInputTargetBlock('A');
     const rightBlock = block.getInputTargetBlock('B');
     const operator = block.getFieldValue('OP') as string;
@@ -282,6 +311,9 @@ export class BlocklyToASTConverter {
   }
 
   private convertUnaryExpression(block: Blockly.Block): Expression {
+      /**
+      * Convierte un bloque de operación unaria (NO lógico) a Expression.
+      */
     const valueBlock = block.getInputTargetBlock('VALUE');
 
     const operand: Expression = valueBlock

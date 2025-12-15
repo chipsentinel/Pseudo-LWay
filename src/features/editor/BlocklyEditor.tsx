@@ -1,13 +1,19 @@
+
+// Importa hooks de React y la librería Blockly.
 import { useEffect, useRef } from 'react';
 import * as Blockly from 'blockly';
 import './blockDefinitions';
 import { INITIAL_WORKSPACE_XML } from '../../config';
 
+
+// Props del componente BlocklyEditor.
+// - onWorkspaceChange: callback al cambiar el workspace.
 interface BlocklyEditorProps {
   onWorkspaceChange?: (workspace: Blockly.Workspace) => void;
 }
 
-// Tema personalizado para bloques y toolbox con la paleta actual
+// Tema personalizado para bloques y toolbox con la paleta visual del editor.
+// Define colores y estilos para bloques, categorías y componentes de la UI.
 const neonTheme = Blockly.Theme.defineTheme('pseudoNeon', {
   name: 'pseudoNeon',
   blockStyles: {
@@ -47,22 +53,25 @@ const neonTheme = Blockly.Theme.defineTheme('pseudoNeon', {
 });
 
 /**
- * Componente editor visual con Blockly
+ * Componente editor visual con Blockly.
+ * Inicializa el workspace, aplica el tema y gestiona los cambios de bloques.
  */
 export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
+  // Referencia al contenedor del editor Blockly.
   const blocklyDiv = useRef<HTMLDivElement>(null);
+  // Referencia al workspace de Blockly (SVG principal).
   const workspaceRef = useRef<Blockly.WorkspaceSvg | null>(null);
 
   useEffect(() => {
     if (!blocklyDiv.current) return;
 
-    // Configuración del toolbox (caja de herramientas)
+    // Configuración del toolbox (caja de herramientas).
     const toolbox = {
       kind: 'categoryToolbox',
       contents: [
         {
           kind: 'category',
-          name: '⚡ Programa',
+          name: '☀️ Programa',
           categorystyle: 'program_category',
           contents: [
             { kind: 'block', type: 'pseudo_start' },
