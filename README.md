@@ -10,73 +10,35 @@
   <a href="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/Vite-7.2.5-646cff?logo=vite&logoColor=white&style=flat-square" alt="Vite"/></a>
   <a href="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square"><img src="https://img.shields.io/badge/TypeScript-5.9.3-3178c6?logo=typescript&logoColor=white&style=flat-square" alt="TypeScript"/></a>
   <a href="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square"><img src="https://img.shields.io/badge/Blockly-12.3.1-ffcb2b?logo=google&logoColor=black&style=flat-square" alt="Blockly"/></a>
-  <a href="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square"><img src="https://img.shields.io/badge/Integral-Integrado-blueviolet?style=flat-square" alt="Integral"/></a>
   <a href="https://img.shields.io/badge/license-MIT-green?style=flat-square"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT"/></a>
 </p>
 
-**Editor visual de pseudocódigo educativo con temática neon y progresión gamificada**
+<h2 align="center">Editor visual de pseudocódigo educativo con temática neon y progresión gamificada</h2>
 
-Aprende pseudocódigo de forma divertida y estructurada, con 50 niveles progresivos, feedback inmediato y una interfaz moderna inspirada en el logo y colores cyan, azul, morado y rosa.
+Aprende pseudocódigo de forma divertida y estructurada, con 50 niveles progresivos, feedback inmediato y una interfaz moderna inspirada en colores cyan, azul, morado y rosa.
 
 ---
 
-**[Características](#características-principales) • [Instalación](#instalación-y-uso) • [Cómo Jugar](#cómo-jugar) • [Desarrollo](#desarrollo)**
+## Tabla de Contenidos
 
+- [Características](#características)
+- [Instalación y Uso](#instalación-y-uso)
+- [Inicialización del API y entorno](#inicialización-del-api-y-entorno)
+- [Estructura de Niveles](#estructura-de-niveles)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Contribuir](#contribuir)
+- [Licencia](#licencia)
+- [Autor](#autor)
 
-## 🌟 Características Principales
+---
 
-### 📚 Sistema de Niveles Curriculares
-- **UD01: Fundamentos** (8 niveles) - Variables, tipos de datos, entrada/salida, operadores, condicionales, bucles
-- **UD02: Arrays** (6 niveles) - Declarar, recorrer, buscar, sumar, invertir arreglos
-- **🧪 Laboratorio Libre** - Zona sandbox sin restricciones para experimentar
-### 📚 Sistema de Niveles Curriculares
-- **UD01: Fundamentos y Algoritmia** (50 niveles) - Desde Hola Mundo hasta algoritmos integradores: variables, tipos, entrada/salida, operadores, condicionales, bucles, arrays, funciones, validaciones, problemas clásicos y más.
-- **🧪 Laboratorio Libre** - Zona sandbox sin restricciones para experimentar
+## 🌟 Características
 
-### ✅ Validación y Feedback
-- Validación automática de estructura de algoritmos
-- Bloques obligatorios: `Algoritmo <nombre>` y `FinAlgoritmo`
-- Feedback visual de éxito cuando completas correctamente un ejercicio
-- Mensajes de error claros y detallados
-### ✅ Validación y Feedback
-- Validación automática de estructura y lógica de algoritmos en cada nivel
-- Bloques obligatorios: `Algoritmo <nombre>` y `FinAlgoritmo` siempre requeridos
-- Feedback visual inmediato: mensajes de error claros y mensaje de éxito al cumplir el objetivo
-- Botón "Limpiar" para reiniciar el workspace, botón "Reset" para reiniciar todo el progreso
-
-### 🎯 Navegación Secuencial
-- Progresión bloqueada hasta completar cada nivel
-- Botones Anterior/Siguiente con estado habilitado/deshabilitado
-- Indicador de progreso: X / Y niveles completados
-- Starter XML para guiar en niveles iniciales
-### 🎯 Navegación y Progreso
-- Progresión bloqueada: solo puedes avanzar si completas el nivel actual
-- Botones Anterior/Siguiente y "Marcar como completado"
-- Indicador de progreso: X / 50 niveles completados
-- Starter XML para guiar en niveles iniciales
-- Progreso guardado automáticamente en localStorage
-
-### 🎨 Identidad Visual Elegante
-- Paleta sunrise: gradientes suaves de amarillo dorado a rosa
-- Logo sol naciente con rayo multicolor
-- Mascota "poyo" (pollito) con actitud divertida
-- Diseño oriental-minimalista con tipografía clara
-### 🎨 Identidad Visual Neon
-- Paleta neon: cyan, azul, morado, rosa, ámbar y menta
-- Gradientes y sombras suaves para no dañar la vista
-- Logo y UI inspirados en el estilo "futurista neon"
-- Botones con gradientes y colores diferenciados (cyan, morado/rosa)
-
-### 🧩 Editor Blockly Potente
-- Bloques visuales arrastrables sin sintaxis complicada
-- Categorías: Programa, Variables, Entrada/Salida, Control, Valores, Operadores
-- Nomenclatura Java (int, double, boolean, String, char)
-- Generación de pseudocódigo PSeInt válido
-### 🧩 Editor Blockly Potente
-- Bloques visuales arrastrables sin sintaxis complicada
-- 6 categorías: Programa, Variables, Entrada/Salida, Control, Valores, Operadores
-- Nomenclatura y sintaxis tipo PSeInt
-- Generación de pseudocódigo válido y validación automática
+- **Sistema de niveles curriculares**: 50 niveles progresivos (variables, tipos, entrada/salida, operadores, condicionales, bucles, arrays, funciones, problemas clásicos y más) y laboratorio libre para experimentar.
+- **Validación y feedback**: Validación automática de estructura y lógica de algoritmos en cada nivel. Bloques obligatorios: `Algoritmo <nombre>` y `FinAlgoritmo`. Feedback visual inmediato y mensajes de error claros.
+- **Navegación y progreso**: Progresión bloqueada hasta completar cada nivel, botones Anterior/Siguiente, indicador de progreso, starter XML y guardado automático en localStorage.
+- **Identidad visual neon**: Paleta neon (cyan, azul, morado, rosa, ámbar, menta), gradientes suaves, logo y UI futurista, botones diferenciados.
+- **Editor Blockly potente**: Bloques visuales arrastrables, 6 categorías (Programa, Variables, Entrada/Salida, Control, Valores, Operadores), nomenclatura tipo PSeInt, generación y validación automática de pseudocódigo.
 
 ---
 
@@ -94,12 +56,39 @@ npm install
 npm run dev
 ```
 
-Por defecto se abre en [http://localhost:5173](http://localhost:5173), pero si ese puerto está ocupado usará el siguiente disponible (ej: 5174, 5175).
+La aplicación se abrirá en [http://localhost:5173](http://localhost:5173) (o el siguiente puerto disponible).
+
+---
+
+## ⚡ Inicialización del API y entorno
+
+Actualmente, Pseudo-LWay funciona completamente en el navegador y no requiere backend real. Toda la persistencia se realiza en localStorage.
+
+**¿Quieres añadir un backend/API?**
+
+1. Crea una carpeta `backend/` y añade tu servidor (por ejemplo, Express + SQLite):
+   ```bash
+   mkdir backend
+   cd backend
+   npm init -y
+   npm install express sqlite3
+   # Crea tu archivo index.js o index.ts y define las rutas necesarias
+   node index.js
+   ```
+2. Actualiza el frontend para consumir el API (fetch/Axios, etc.).
+
+**Comandos recomendados para inicializar el backend:**
+```bash
+# Desde la raíz del proyecto
+cd backend
+node index.js
+```
+
+> Si solo usas la versión actual (sin backend), no necesitas realizar estos pasos.
 
 ---
 
 ## 📖 Estructura de Niveles
----
 
 ### UD01: Fundamentos del Pseudocódigo
 1. **Introducción** - Estructura Algoritmo/FinAlgoritmo, bloque Escribir
@@ -122,58 +111,7 @@ Por defecto se abre en [http://localhost:5173](http://localhost:5173), pero si e
 ### 🧪 Laboratorio Libre
 Sin objetivos ni restricciones. Experimenta, combina conceptos y diviértete creando.
 
-
-## 🛠️ Tecnologías
-
-
-
-## 🎯 Bloques Disponibles
-
-### 🏁 Programa
-
-### 📦 Variables
-
-### 💬 Entrada/Salida
-
-### 🔀 Control de Flujo
-
-### 🔢 Valores y Operadores
-
-
-## 📋 Roadmap
-
-### ✅ Completado
-
-### 🚧 En Progreso
-
-### 🔮 Futuro
-
-
-## 🤝 Contribuir
-
-Las contribuciones son bienvenidas. Por favor:
-1. Haz fork del proyecto
-2. Crea una rama: `git checkout -b feature/nueva-caracteristica`
-3. Commit tus cambios: `git commit -m 'feat: añadir nueva característica'`
-4. Push a la rama: `git push origin feature/nueva-caracteristica`
-5. Abre un Pull Request
-
-
-## 📝 Licencia
-
-Este proyecto está bajo licencia MIT. Ver archivo [LICENSE](LICENSE) para más detalles.
-
-
-## 👨‍💻 Autor
-
-**Proyecto educativo DAW1 - Pseudo-LWay**
-
-Aprende jugando bajo el sol naciente ☀️🐔
-
-
-## 🙏 Agradecimientos
-
-
+---
 
 ## 📂 Estructura del Proyecto
 
@@ -195,62 +133,74 @@ src/
 │       └── sandbox.ts   # Laboratorio libre
 ├── components/
 │   ├── App.tsx          # Componente principal
-│   ├── App.css          # Estilos globales con tema sunrise
+│   ├── App.css          # Estilos globales con tema neon
 │   └── LevelsSidebar.tsx # Navegación de niveles
-├── assets/              # Logos y mascota (sunrise_lightning.svg, poyo.svg)
+├── assets/              # Logos y mascota (Pseudo-LWAY-logo.svg, poyo.svg)
 └── main.tsx            # Punto de entrada
 ```
 
-# Pseudo-LWay
+---
 
-Editor visual de pseudocódigo educativo con temática neon y progresión gamificada.  
-Frontend en React + TypeScript + Vite, estático y moderno. Backend simulado solo para persistencia local (localStorage).  
-Pensado para aprender, enseñar y extender fácilmente a más niveles o bloques.  
-Ideal para institutos, docentes y estudiantes que quieren practicar algoritmia de forma visual y divertida.
+## ℹ️ Notas y Extensión
+
+- Plataforma web para aprender y practicar pseudocódigo de forma visual, usando bloques tipo Blockly y niveles curriculares.
+- Pensado para estudiantes, docentes, academias y autodidactas.
+- Arrastra bloques para construir algoritmos y avanza por 50 niveles progresivos.
+- Feedback inmediato, validación automática y progreso guardado en localStorage.
+- Tecnologías: React, TypeScript, Vite, Blockly. Sin backend real por defecto.
+- Para extender: añade niveles en `src/features/levels/`, crea bloques en `blockDefinitions.ts` y personaliza estilos en `App.css`.
 
 ---
 
-## 📖 Wiki
+## 🚀 Mejoras y Roadmap
 
-- **¿Qué es?**  
-  Plataforma web para aprender y practicar pseudocódigo de forma visual, usando bloques tipo Blockly y niveles curriculares.
-- **¿Para quién?**  
-  Estudiantes de programación básica, docentes de informática, academias, autodidactas.
-- **¿Cómo funciona?**  
-  - Arrastra bloques para construir algoritmos.
-  - Avanza por 50 niveles progresivos (variables, bucles, arrays, funciones…).
-  - Feedback inmediato y validación automática.
-  - Progreso guardado en localStorage.
-- **¿Qué tecnologías usa?**  
-  - React, TypeScript, Vite, Blockly.
-  - Sin backend real: todo persistente en el navegador.
-- **¿Cómo extender?**  
-  - Añade más niveles en `src/features/levels/`.
-  - Crea nuevos bloques en `blockDefinitions.ts`.
-  - Personaliza estilos en `App.css`.
+- [ ] Exportación/importación de pseudocódigo y soluciones
+- [ ] Soporte multiusuario (requiere backend real)
+- [ ] Editor de bloques para docentes
+- [ ] Modo oscuro y más temas visuales
+- [ ] Integración con plataformas educativas (Google Classroom, Moodle)
+- [ ] Mejorar accesibilidad y soporte móvil
+- [ ] Más feedback visual y animaciones
+- [ ] Traducción a más idiomas
 
 ---
 
-## 🚀 Improvements
+## 📚 Documentación ampliada
 
-- [ ] Añadir exportación/importación de pseudocódigo y soluciones.
-- [ ] Soporte para cuentas multiusuario (con backend real).
-- [ ] Editor de bloques personalizado para docentes.
-- [ ] Modo oscuro y más temas visuales.
-- [ ] Integración con plataformas educativas (Google Classroom, Moodle).
-- [ ] Mejorar accesibilidad y soporte móvil.
-- [ ] Añadir más feedback visual y animaciones.
-- [ ] Traducción a más idiomas.
+Para más detalles, guías y temas avanzados, consulta la documentación extendida en la carpeta [`docs/`](docs/):
 
----
+- [¿Qué es Pseudo-LWay?](docs/que-es.md)
+- [¿Para quién es?](docs/para-quien.md)
+- [¿Cómo funciona?](docs/como-funciona.md)
+- [Tecnologías utilizadas](docs/tecnologias.md)
+- [¿Cómo extender Pseudo-LWay?](docs/como-extender.md)
+- [Wiki técnico detallado (WIKI.md)](WIKI.md)
 
-## 📊 Status
-
-- **Versión:** 1.0.0 (estable)
-- **Niveles:** 50 + laboratorio libre
-- **Persistencia:** localStorage (sin backend)
-- **UI:** Neon, responsive, accesible
-- **Documentación:** Completa en README y comentarios de código
-- **Roadmap:** Mejoras visuales, exportación, integración educativa
+Para una visión técnica profunda del proyecto, consulta el archivo [`WIKI.md`](WIKI.md), que incluye:
+- Arquitectura y estructura de carpetas
+- Explicación de módulos core y editor
+- Guía de extensión y ejemplos de código
+- Conceptos de programación y patrones
+- Comandos útiles y recursos adicionales
 
 ---
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Para colaborar:
+1. Haz fork del proyecto
+2. Crea una rama: `git checkout -b feature/nueva-caracteristica`
+3. Realiza tus cambios y haz commit: `git commit -m 'feat: añadir nueva característica'`
+4. Haz push a tu rama: `git push origin feature/nueva-caracteristica`
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👨‍💻 Autor
+
+**Proyecto educativo DAW1 - Pseudo-LWay**
+Aprende jugando bajo el sol naciente ☀️🐔
+
+## 🙏 Agradecimientos

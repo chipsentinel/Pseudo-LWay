@@ -1,3 +1,5 @@
+// Configuración raíz de TypeScript para el proyecto.
+// Referencia las configuraciones específicas para la app y scripts de Node.
 {
   "files": [],
   "references": [

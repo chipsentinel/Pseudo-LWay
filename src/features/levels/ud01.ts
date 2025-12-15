@@ -1,11 +1,17 @@
+
+// Importa el tipo Level para definir los niveles de la unidad didáctica 01.
 import { Level } from './levels';
 
-// UD01 — Empezar a programar con Pseudocódigo
-// 50 niveles con dificultad progresiva importados desde ud01_extended.ts
 
+// UD01 — Empezar a programar con Pseudocódigo.
+// Los niveles principales se importan desde ud01_extended.ts (progresivos y actualizados).
+
+
+// Exporta la lista principal de niveles de la UD01 (actualizados).
 export { UD01_LEVELS } from './ud01_extended';
 
-// Niveles antiguos (8) - mantenidos como referencia histórica
+// Niveles antiguos (8) - mantenidos como referencia histórica.
+// Estos niveles no se usan en la progresión principal, pero sirven como ejemplo y para pruebas.
 export const UD01_LEVELS_OLD: Level[] = [
   {
     id: 'ud01-1-introduccion',

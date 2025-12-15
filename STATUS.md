@@ -1,3 +1,11 @@
+# STATUS.md
+
+## ¿Para qué sirve este archivo?
+
+El archivo `STATUS.md` documenta el estado actual, progreso, hitos, tareas pendientes y salud del proyecto. Es una referencia rápida para colaboradores, usuarios y responsables, y debe actualizarse regularmente para reflejar la realidad del desarrollo.
+
+---
+
 # Estado Final del Proyecto Pseudo-LWay
 
 ## Completado
@@ -206,3 +214,21 @@ git diff c68c8a1~1 c68c8a1
 - Todo compila sin errores (npm run type-check ✓)
 - No hay warnings de TypeScript
 - Todos los archivos están versionados correctamente
+
+## Buenas Prácticas para Mantener STATUS.md
+
+- Actualiza este archivo tras cada hito importante, release o cambio relevante.
+- Usa fechas claras y versiones semánticas.
+- Resume problemas críticos y cómo se están abordando.
+- Añade enlaces a issues, pull requests o discusiones relevantes si aplica.
+- Mantén la sección de próximos pasos siempre actualizada para orientar a nuevos colaboradores.
+- Si el proyecto entra en pausa o cambia de responsables, indícalo aquí.
+
+## Contacto y Colaboración
+
+- Para dudas, sugerencias o reportes, utiliza los canales indicados en el README.
+- Si detectas información desactualizada en este archivo, abre un issue o pull request para corregirlo.
+
+---
+
+> Actualiza este archivo regularmente para reflejar el estado real del proyecto y facilitar el seguimiento a todos los colaboradores.

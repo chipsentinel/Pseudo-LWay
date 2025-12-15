@@ -58,8 +58,8 @@ export type Expression =
  */
 export interface LiteralExpression {
   kind: 'literal';              // Etiqueta que identifica el tipo (patrón discriminador)
-  valueType: DataType;          // Qué tipo de dato es este literal
-  value: string | number | boolean; // El valor en sí
+  valueType: DataType;          // Tipo de dato del literal (Entero, Real, etc.)
+  value: string | number | boolean; // Valor concreto del literal
 }
 
 /**

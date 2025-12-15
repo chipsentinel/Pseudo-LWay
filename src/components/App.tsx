@@ -1,14 +1,13 @@
+// Componente principal de la aplicación Pseudo-LWay.
+// Permite aprender programación con pseudocódigo visual usando bloques (Blockly).
+// Incluye sistema de niveles progresivos, validación automática, generación de pseudocódigo y persistencia de progreso.
+//
+// Estructura general:
+// - Panel izquierdo: información y navegación de niveles
+// - Panel central: editor visual de bloques
+// - Panel derecho: teoría, términos y feedback
 
-/**
- * Componente principal de la aplicación Pseudo-LWay.
- * Permite al usuario aprender programación con pseudocódigo visual usando bloques (Blockly).
- * Incluye sistema de niveles progresivos, validación automática, generación de pseudocódigo y persistencia de progreso.
- *
- * Estructura general:
- * - Panel izquierdo: información y navegación de niveles
- * - Panel central: editor visual de bloques
- * - Panel derecho: teoría, términos y feedback
- */
+// Importa hooks de React, Blockly y módulos del editor y niveles.
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import * as Blockly from 'blockly';
 import { BlocklyEditor } from '../features/editor';
@@ -17,40 +16,42 @@ import { BlocklyToASTConverter } from '../features/editor/blocklyConverter';
 import { Validator, PseudocodeGenerator, ValidationError } from '../core';
 import './App.css';
 
+
 function App() {
   // --- ESTADOS PRINCIPALES ---
-  // pseudocode: pseudocódigo generado a partir de los bloques
+  // pseudocode: pseudocódigo generado a partir de los bloques.
   const [pseudocode, setPseudocode] = useState<string>('');
-  // errors: lista de errores de validación
+  // errors: lista de errores de validación del algoritmo.
   const [errors, setErrors] = useState<string[]>([]);
-  // workspace: referencia al workspace de Blockly
+  // workspace: referencia al workspace de Blockly.
   const [workspace, setWorkspace] = useState<Blockly.Workspace | null>(null);
-  // allLevels: lista de niveles (se copia para evitar mutaciones accidentales)
+  // allLevels: lista de niveles (se copia para evitar mutaciones accidentales).
   const allLevels = useMemo(() => [...UD01_LEVELS], []);
-  // currentLevelIndex: índice del nivel actual (persistido en localStorage)
+  // currentLevelIndex: índice del nivel actual (persistido en localStorage).
   const [currentLevelIndex, setCurrentLevelIndex] = useState(() => {
     const saved = localStorage.getItem('pseudo-lway-current-level');
     return saved ? parseInt(saved, 10) : 0;
   });
-  // completedLevels: objeto con los niveles completados (persistido en localStorage)
+  // completedLevels: objeto con los niveles completados (persistido en localStorage).
   const [completedLevels, setCompletedLevels] = useState<Record<string, boolean>>(() => {
     const saved = localStorage.getItem('pseudo-lway-completed');
     return saved ? JSON.parse(saved) : {};
   });
-  // successMessage: mensaje de éxito al completar un ejercicio
+  // successMessage: mensaje de éxito al completar un ejercicio.
   const [successMessage, setSuccessMessage] = useState<string>('');
 
-  // selectedLevel: nivel actualmente seleccionado
+  // selectedLevel: nivel actualmente seleccionado.
   const selectedLevel = allLevels[currentLevelIndex];
 
 
+
   // --- EFECTOS DE PERSISTENCIA ---
-  // Guarda el nivel actual en localStorage al cambiar
+  // Guarda el nivel actual en localStorage al cambiar.
   useEffect(() => {
     localStorage.setItem('pseudo-lway-current-level', currentLevelIndex.toString());
   }, [currentLevelIndex]);
 
-  // Guarda los niveles completados en localStorage al cambiar
+  // Guarda los niveles completados en localStorage al cambiar.
   useEffect(() => {
     localStorage.setItem('pseudo-lway-completed', JSON.stringify(completedLevels));
   }, [completedLevels]);
@@ -58,6 +59,7 @@ function App() {
 
   /**
    * Callback que se ejecuta cuando el workspace de Blockly cambia.
+   * Permite actualizar el pseudocódigo, validar el algoritmo y actualizar el estado.
    * Permite acceder a los bloques actuales para validación/generación.
    */
   const handleWorkspaceChange = useCallback((ws: Blockly.Workspace) => {
