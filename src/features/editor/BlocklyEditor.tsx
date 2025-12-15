@@ -71,7 +71,7 @@ export const BlocklyEditor = ({ onWorkspaceChange }: BlocklyEditorProps) => {
       contents: [
         {
           kind: 'category',
-          name: '⚡ Programa',
+          name: '☀️ Programa',
           categorystyle: 'program_category',
           contents: [
             { kind: 'block', type: 'pseudo_start' },
