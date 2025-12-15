@@ -37,11 +37,6 @@ Aprende pseudocódigo de forma divertida y estructurada, con 50 niveles progresi
 - **🧪 Laboratorio Libre** - Zona sandbox sin restricciones para experimentar
 
 ### ✅ Validación y Feedback
-- Validación automática de estructura de algoritmos
-- Bloques obligatorios: `Algoritmo <nombre>` y `FinAlgoritmo`
-- Feedback visual de éxito cuando completas correctamente un ejercicio
-- Mensajes de error claros y detallados
-### ✅ Validación y Feedback
 - Validación automática de estructura y lógica de algoritmos en cada nivel
 - Bloques obligatorios: `Algoritmo <nombre>` y `FinAlgoritmo` siempre requeridos
 - Feedback visual inmediato: mensajes de error claros y mensaje de éxito al cumplir el objetivo
@@ -59,22 +54,12 @@ Aprende pseudocódigo de forma divertida y estructurada, con 50 niveles progresi
 - Starter XML para guiar en niveles iniciales
 - Progreso guardado automáticamente en localStorage
 
-### 🎨 Identidad Visual Elegante
-- Paleta sunrise: gradientes suaves de amarillo dorado a rosa
-- Logo sol naciente con rayo multicolor
-- Mascota "poyo" (pollito) con actitud divertida
-- Diseño oriental-minimalista con tipografía clara
 ### 🎨 Identidad Visual Neon
 - Paleta neon: cyan, azul, morado, rosa, ámbar y menta
 - Gradientes y sombras suaves para no dañar la vista
 - Logo y UI inspirados en el estilo "futurista neon"
 - Botones con gradientes y colores diferenciados (cyan, morado/rosa)
 
-### 🧩 Editor Blockly Potente
-- Bloques visuales arrastrables sin sintaxis complicada
-- Categorías: Programa, Variables, Entrada/Salida, Control, Valores, Operadores
-- Nomenclatura Java (int, double, boolean, String, char)
-- Generación de pseudocódigo PSeInt válido
 ### 🧩 Editor Blockly Potente
 - Bloques visuales arrastrables sin sintaxis complicada
 - 6 categorías: Programa, Variables, Entrada/Salida, Control, Valores, Operadores
@@ -114,13 +99,6 @@ Por defecto se abre en [http://localhost:5173](http://localhost:5173), pero si e
 7. **Bucles Para** - Iteración con contador
 8. **Caso integrador** - Estadísticas con suma, promedio, máximo, mínimo
 
-### UD02: Estructuras de Datos - Arrays
-1. **Declarar arreglos** - Dimension, acceso por índice
-2. **Recorrer arreglos** - Bucle Para con índice
-3. **Buscar máximo** - Comparación elemento a elemento
-4. **Sumar elementos** - Acumulador en bucle
-5. **Buscar elemento** - Bandera booleana
-6. **Invertir arreglo** - Intercambio simétrico
 
 ### 🧪 Laboratorio Libre
 Sin objetivos ni restricciones. Experimenta, combina conceptos y diviértete creando.
